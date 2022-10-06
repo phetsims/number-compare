@@ -11,12 +11,12 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
-import NumberPlayConstants from '../../common/NumberPlayConstants.js';
-import numberPlay from '../../numberPlay.js';
-import NumberPlayStrings from '../../NumberPlayStrings.js';
+import NumberPlayConstants from '../../../../number-play/js/common/NumberPlayConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import NumberCompareStrings from '../../NumberCompareStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import numberCompare from '../../numberCompare.js';
 
 class ComparisonTextNode extends Node {
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
@@ -56,9 +56,9 @@ class ComparisonTextNode extends Node {
   private static getComparisonString( leftCurrentNumber: number, rightCurrentNumber: number,
                                       isPrimaryLocale: boolean ): string {
 
-    let isLessThanString = NumberPlayStrings.isLessThan;
-    let isMoreThanString = NumberPlayStrings.isMoreThan;
-    let isEqualToString = NumberPlayStrings.isEqualTo;
+    let isLessThanString = NumberCompareStrings.isLessThan;
+    let isMoreThanString = NumberCompareStrings.isMoreThan;
+    let isEqualToString = NumberCompareStrings.isEqualTo;
 
     const secondLocaleStrings = phet.numberPlay.secondLocaleStrings;
     if ( secondLocaleStrings && !isPrimaryLocale ) {
@@ -95,5 +95,5 @@ class ComparisonTextNode extends Node {
   }
 }
 
-numberPlay.register( 'ComparisonTextNode', ComparisonTextNode );
+numberCompare.register( 'ComparisonTextNode', ComparisonTextNode );
 export default ComparisonTextNode;

@@ -11,10 +11,10 @@ import Range from '../../../../dot/js/Range.js';
 import { Color, Path } from '../../../../scenery/js/imports.js';
 import eyeSlashSolidShape from '../../../../sherpa/js/fontawesome-5/eyeSlashSolidShape.js';
 import RectangularRadioButtonGroup from '../../../../sun/js/buttons/RectangularRadioButtonGroup.js';
-import numberPlay from '../../numberPlay.js';
 import CompareCountingType from '../model/CompareCountingType.js';
 import BlockValuesNode from './BlockValuesNode.js';
 import CompareNumberLineNode from './CompareNumberLineNode.js';
+import numberCompare from '../../numberCompare.js';
 
 // constants
 const ICON_SIZE = 32; // the width and height of the icons used for the buttons, in screen coordinates
@@ -61,5 +61,5 @@ class CompareCountingTypeRadioButtonGroup extends RectangularRadioButtonGroup<Co
   }
 }
 
-numberPlay.register( 'CompareCountingTypeRadioButtonGroup', CompareCountingTypeRadioButtonGroup );
+numberCompare.register( 'CompareCountingTypeRadioButtonGroup', CompareCountingTypeRadioButtonGroup );
 export default CompareCountingTypeRadioButtonGroup;

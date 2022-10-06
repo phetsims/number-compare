@@ -1,18 +1,9 @@
 {
-  "number-play.title": {
-    "value": "Number Play"
-  },
-  "screen.ten": {
-    "value": "Ten"
-  },
-  "screen.twenty": {
-    "value": "Twenty"
+  "number-compare.title": {
+    "value": "Number Compare"
   },
   "screen.compare": {
     "value": "Compare"
-  },
-  "screen.game": {
-    "value": "Game"
   },
   "screen.lab": {
     "value": "Lab"

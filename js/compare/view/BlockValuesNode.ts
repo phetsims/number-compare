@@ -8,9 +8,9 @@
  */
 
 import { Node, Rectangle, VBox } from '../../../../scenery/js/imports.js';
-import NumberPlayColors from '../../common/NumberPlayColors.js';
-import numberPlay from '../../numberPlay.js';
+import NumberPlayColors from '../../../../number-play/js/common/NumberPlayColors.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import numberCompare from '../../numberCompare.js';
 
 // constants
 const SIDE_LENGTH = 20.8; // the side length of one block
@@ -72,5 +72,5 @@ class BlockValuesNode extends Node {
   }
 }
 
-numberPlay.register( 'BlockValuesNode', BlockValuesNode );
+numberCompare.register( 'BlockValuesNode', BlockValuesNode );
 export default BlockValuesNode;

@@ -11,12 +11,12 @@ import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import { Image } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import compareScreenIcon_png from '../../images/compareScreenIcon_png.js';
-import NumberPlayColors from '../common/NumberPlayColors.js';
-import numberPlay from '../numberPlay.js';
-import NumberPlayStrings from '../NumberPlayStrings.js';
+import NumberPlayColors from '../../../number-play/js/common/NumberPlayColors.js';
 import CompareModel from './model/CompareModel.js';
 import CompareScreenView from './view/CompareScreenView.js';
-import NumberPlayQueryParameters from '../common/NumberPlayQueryParameters.js';
+import NumberPlayQueryParameters from '../../../number-play/js/common/NumberPlayQueryParameters.js';
+import NumberCompareStrings from '../NumberCompareStrings.js';
+import numberCompare from '../numberCompare.js';
 
 
 class CompareScreen extends Screen<CompareModel, CompareScreenView> {
@@ -24,7 +24,7 @@ class CompareScreen extends Screen<CompareModel, CompareScreenView> {
   public constructor( tandem: Tandem ) {
 
     const options = {
-      name: NumberPlayStrings.screen.compareStringProperty,
+      name: NumberCompareStrings.screen.compareStringProperty,
       backgroundColorProperty: NumberPlayColors.whiteBackgroundColorProperty,
       homeScreenIcon: new ScreenIcon( new Image( compareScreenIcon_png ), {
         maxIconWidthProportion: 1,
@@ -43,5 +43,5 @@ class CompareScreen extends Screen<CompareModel, CompareScreenView> {
   }
 }
 
-numberPlay.register( 'CompareScreen', CompareScreen );
+numberCompare.register( 'CompareScreen', CompareScreen );
 export default CompareScreen;

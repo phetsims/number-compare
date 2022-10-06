@@ -14,24 +14,24 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import NumberPlayColors from '../../common/NumberPlayColors.js';
-import NumberPlayConstants from '../../common/NumberPlayConstants.js';
-import LocaleSwitch from '../../common/view/LocaleSwitch.js';
-import SpeechSynthesisButton from '../../common/view/SpeechSynthesisButton.js';
-import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../common/view/TotalAccordionBox.js';
-import numberPlay from '../../numberPlay.js';
+import NumberPlayColors from '../../../../number-play/js/common/NumberPlayColors.js';
+import NumberPlayConstants from '../../../../number-play/js/common/NumberPlayConstants.js';
+import LocaleSwitch from '../../../../number-play/js/common/view/LocaleSwitch.js';
+import SpeechSynthesisButton from '../../../../number-play/js/common/view/SpeechSynthesisButton.js';
+import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../../../number-play/js/common/view/TotalAccordionBox.js';
 import CompareCountingType from '../model/CompareCountingType.js';
 import CompareModel from '../model/CompareModel.js';
 import BlockValuesNode from './BlockValuesNode.js';
 import CompareCountingTypeRadioButtonGroup from './CompareCountingTypeRadioButtonGroup.js';
 import CompareNumberLineNode from './CompareNumberLineNode.js';
 import ComparisonTextNode from './ComparisonTextNode.js';
-import CountingAccordionBox, { CountingAccordionBoxOptions } from '../../common/view/CountingAccordionBox.js';
-import OrganizeButton from '../../common/view/OrganizeButton.js';
-import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
-import numberPlaySpeechSynthesisAnnouncer from '../../common/view/numberPlaySpeechSynthesisAnnouncer.js';
+import CountingAccordionBox, { CountingAccordionBoxOptions } from '../../../../number-play/js/common/view/CountingAccordionBox.js';
+import OrganizeButton from '../../../../number-play/js/common/view/OrganizeButton.js';
+import numberPlaySpeechSynthesisAnnouncer from '../../../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
+import numberCompare from '../../numberCompare.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -261,5 +261,5 @@ class CompareScreenView extends ScreenView {
   }
 }
 
-numberPlay.register( 'CompareScreenView', CompareScreenView );
+numberCompare.register( 'CompareScreenView', CompareScreenView );
 export default CompareScreenView;

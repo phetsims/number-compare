@@ -6,9 +6,9 @@
  * @author Chris Klusendorf
  */
 
-import numberPlay from '../../numberPlay.js';
 import EnumerationValue from '../../../../phet-core/js/EnumerationValue.js';
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
+import numberCompare from '../../numberCompare.js';
 
 class CompareCountingType extends EnumerationValue {
   public static BLOCKS = new CompareCountingType();
@@ -18,5 +18,5 @@ class CompareCountingType extends EnumerationValue {
   public static enumeration = new Enumeration( CompareCountingType );
 }
 
-numberPlay.register( 'CompareCountingType', CompareCountingType );
+numberCompare.register( 'CompareCountingType', CompareCountingType );
 export default CompareCountingType;

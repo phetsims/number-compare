@@ -11,13 +11,13 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Circle, Color, TPaint, Node, Path, Text } from '../../../../scenery/js/imports.js';
-import NumberPlayColors from '../../common/NumberPlayColors.js';
-import numberPlay from '../../numberPlay.js';
+import NumberPlayColors from '../../../../number-play/js/common/NumberPlayColors.js';
 import Range from '../../../../dot/js/Range.js';
 import EnumerationValue from '../../../../phet-core/js/EnumerationValue.js';
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import numberCompare from '../../numberCompare.js';
 
 // types
 type GetNumberLineNodeOptions = {
@@ -160,5 +160,5 @@ class LeftRightDirection extends EnumerationValue {
   public static enumeration = new Enumeration( LeftRightDirection );
 }
 
-numberPlay.register( 'CompareNumberLineNode', CompareNumberLineNode );
+numberCompare.register( 'CompareNumberLineNode', CompareNumberLineNode );
 export default CompareNumberLineNode;

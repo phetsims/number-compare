@@ -8,12 +8,12 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
-import numberPlay from '../../numberPlay.js';
 import CompareCountingType from './CompareCountingType.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import OnesPlayArea from '../../common/model/OnesPlayArea.js';
-import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
+import OnesPlayArea from '../../../../number-play/js/common/model/OnesPlayArea.js';
 import Range from '../../../../dot/js/Range.js';
+import numberCompare from '../../numberCompare.js';
+import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 
 class CompareModel {
   public readonly sumRange: Range; // TODO: Factor out base class with NumberPlayModel.js
@@ -59,5 +59,5 @@ class CompareModel {
   public step(): void { /* no stepping here */ }
 }
 
-numberPlay.register( 'CompareModel', CompareModel );
+numberCompare.register( 'CompareModel', CompareModel );
 export default CompareModel;

@@ -10,20 +10,17 @@ import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
-import NumberPlayGameScreen from './game/NumberPlayGameScreen.js';
-import LabScreen from './lab/LabScreen.js';
-import NumberPlayStrings from './NumberPlayStrings.js';
-import TenScreen from './ten/TenScreen.js';
-import TwentyScreen from './twenty/TwentyScreen.js';
-import NumberPlayQueryParameters from './common/NumberPlayQueryParameters.js';
-import numberPlaySpeechSynthesisAnnouncer from './common/view/numberPlaySpeechSynthesisAnnouncer.js';
+import NumberPlayQueryParameters from './../../number-play/js/common/NumberPlayQueryParameters.js';
+import LabScreen from './../../number-play/js/lab/LabScreen.js';
+import numberPlaySpeechSynthesisAnnouncer from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
 import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
 import Screen from '../../joist/js/Screen.js';
 import soundManager from '../../tambo/js/soundManager.js';
-import NumberPlayModel from './common/model/NumberPlayModel.js';
+import NumberPlayModel from './../../number-play/js/common/model/NumberPlayModel.js';
+import NumberCompareStrings from './NumberCompareStrings.js';
 
 // get our second locale strings
 if ( NumberPlayQueryParameters.secondLocale ) {
@@ -38,7 +35,7 @@ if ( NumberPlayQueryParameters.secondLocale ) {
   }
 }
 
-const numberPlayTitleStringProperty = NumberPlayStrings[ 'number-play' ].titleStringProperty;
+const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
 const simOptions: SimOptions = {
   credits: {
@@ -56,11 +53,8 @@ const simOptions: SimOptions = {
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
   const sim = new Sim( numberPlayTitleStringProperty, [
-    new TenScreen( Tandem.ROOT.createTandem( 'tenScreen' ) ),
-    new TwentyScreen( Tandem.ROOT.createTandem( 'twentyScreen' ) ),
     new CompareScreen( Tandem.ROOT.createTandem( 'compareScreen' ) ),
-    new NumberPlayGameScreen( Tandem.ROOT.createTandem( 'numberPlayGameScreen' ) ),
-    new LabScreen( Tandem.ROOT.createTandem( 'numberPlayLabScreen' ) )
+    new LabScreen( Tandem.ROOT.createTandem( 'numberCompareLabScreen' ) )
   ], simOptions );
   sim.start();
 
