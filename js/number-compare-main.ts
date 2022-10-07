@@ -11,7 +11,6 @@ import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
 import NumberPlayQueryParameters from './../../number-play/js/common/NumberPlayQueryParameters.js';
-import LabScreen from './../../number-play/js/lab/LabScreen.js';
 import numberPlaySpeechSynthesisAnnouncer from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
@@ -21,6 +20,7 @@ import Screen from '../../joist/js/Screen.js';
 import soundManager from '../../tambo/js/soundManager.js';
 import NumberPlayModel from './../../number-play/js/common/model/NumberPlayModel.js';
 import NumberCompareStrings from './NumberCompareStrings.js';
+import LabScreen from './lab/LabScreen.js';
 
 // get our second locale strings
 if ( NumberPlayQueryParameters.secondLocale ) {
