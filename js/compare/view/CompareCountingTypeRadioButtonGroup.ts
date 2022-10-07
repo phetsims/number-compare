@@ -46,7 +46,7 @@ class CompareCountingTypeRadioButtonGroup extends RectangularRadioButtonGroup<Co
 
       return {
         value: countingType,
-        node: iconNode
+        createNode: iconNode
       };
     } );
 
