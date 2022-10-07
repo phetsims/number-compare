@@ -15,7 +15,6 @@ import NumberPlayColors from '../../../number-play/js/common/NumberPlayColors.js
 import NumberPlayStrings from '../../../number-play/js/NumberPlayStrings.js';
 import LabModel from '../../../number-play/js/lab/model/LabModel.js';
 import LabScreenView from '../../../number-play/js/lab/view/LabScreenView.js';
-import { SymbolType } from '../../../number-play/js/lab/view/SymbolCardNode.js';
 import numberCompare from '../numberCompare.js';
 
 class LabScreen extends Screen<LabModel, LabScreenView> {
