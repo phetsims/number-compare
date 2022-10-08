@@ -15,6 +15,7 @@ import CompareCountingType from '../model/CompareCountingType.js';
 import BlockValuesNode from './BlockValuesNode.js';
 import CompareNumberLineNode from './CompareNumberLineNode.js';
 import numberCompare from '../../numberCompare.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 // constants
 const ICON_SIZE = 32; // the width and height of the icons used for the buttons, in screen coordinates
@@ -46,7 +47,7 @@ class CompareCountingTypeRadioButtonGroup extends RectangularRadioButtonGroup<Co
 
       return {
         value: countingType,
-        createNode: iconNode
+        createNode: ( tandem: Tandem ) => iconNode
       };
     } );
 
