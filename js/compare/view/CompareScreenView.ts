@@ -136,7 +136,7 @@ class CompareScreenView extends ScreenView {
       const speechSynthesisButton = new SpeechSynthesisButton( model.isPrimaryLocaleProperty, {
           stringProperty: comparisonTextNode.comparisonStringProperty,
           numberProperty: model.leftPlayArea.sumProperty,
-          numberProperty2: model.rightPlayArea.sumProperty
+          secondNumberProperty: model.rightPlayArea.sumProperty
         }
       );
       speechSynthesisButton.left = NumberPlayConstants.SCREEN_VIEW_PADDING_X;
