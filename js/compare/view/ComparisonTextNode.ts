@@ -17,14 +17,15 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompare from '../../numberCompare.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 
 class ComparisonTextNode extends Node {
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
 
   public constructor( leftCurrentNumberProperty: NumberProperty,
-               rightCurrentNumberProperty: NumberProperty,
-               isPrimaryLocaleProperty: BooleanProperty,
-               layoutBounds: Bounds2 ) {
+                      rightCurrentNumberProperty: NumberProperty,
+                      isPrimaryLocaleProperty: BooleanProperty,
+                      layoutBounds: Bounds2 ) {
     super();
 
     // (read-only) - update the comparison string when either current number changes.
@@ -68,8 +69,10 @@ class ComparisonTextNode extends Node {
       isEqualToString = secondLocaleStrings[ `${numberPlayPrefix}isEqualTo` ];
     }
 
-    const leftNumberString = NumberPlayConstants.numberToString( leftCurrentNumber, isPrimaryLocale );
-    const rightNumberString = NumberPlayConstants.numberToString( rightCurrentNumber, isPrimaryLocale );
+    const leftNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty,
+      leftCurrentNumber, isPrimaryLocale );
+    const rightNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty,
+      rightCurrentNumber, isPrimaryLocale );
     let comparisonString;
 
     if ( leftCurrentNumber < rightCurrentNumber ) {
