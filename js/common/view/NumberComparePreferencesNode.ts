@@ -13,19 +13,14 @@ import Utils from '../../../../dot/js/Utils.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences, { NumberComparePreferences } from '../model/numberComparePreferences.js';
 import NumberSuiteCommonPreferencesNode from '../../../../number-play/js/common/view/NumberSuiteCommonPreferencesNode.js';
+import NumberCompareStrings from '../../NumberCompareStrings.js';
 
 export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode<NumberComparePreferences> {
 
   public constructor() {
 
-    const gameScreenSectionTitle = new Text( 'Compare Screen', {
-      fontWeight: 'bold',
-      fontSize: NumberSuiteCommonPreferencesNode.FONT_SIZE
-    } );
-
-    const compareMaxText = new Text( 'Maximum Total', {
-      fontSize: NumberSuiteCommonPreferencesNode.FONT_SIZE
-    } );
+    const compareMaxText = new Text( NumberCompareStrings.maximumTotalStringProperty,
+      NumberSuiteCommonPreferencesNode.CONTROL_TEXT_OPTIONS );
     const compareMaxSlider = new HSlider( numberComparePreferences.compareMaxProperty,
       numberComparePreferences.compareMaxProperty.range!, {
         constrainValue: ( value: number ) => Utils.toFixedNumber( value, 1 )
@@ -34,7 +29,7 @@ export default class NumberComparePreferencesNode extends NumberSuiteCommonPrefe
       children: [ compareMaxText, compareMaxSlider ]
     } );
 
-    super( numberComparePreferences, [ gameScreenSectionTitle, compareMaxControl ] );
+    super( numberComparePreferences, [ compareMaxControl ] );
   }
 }
 

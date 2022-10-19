@@ -95,6 +95,8 @@ type StringsType = {
   'gamesStringProperty': LinkableProperty<string>;
   'language': string;
   'languageStringProperty': LinkableProperty<string>;
+  'maximumTotal': string;
+  'maximumTotalStringProperty': LinkableProperty<string>;
 };
 
 const NumberCompareStrings = getStringModule( 'NUMBER_COMPARE' ) as StringsType;
