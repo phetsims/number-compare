@@ -32,6 +32,7 @@ import Multilink from '../../../../axon/js/Multilink.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import numberCompare from '../../numberCompare.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -160,8 +161,11 @@ class CompareScreenView extends ScreenView {
     const localeSwitch = new LocaleSwitch( model.isPrimaryLocaleProperty, localeSwitchMaxWidth );
     localeSwitch.centerX = localeSwitchXRange.getCenter();
     localeSwitch.centerY = localeSwitchCenterY;
-    localeSwitch.visible = !!phet.numberPlay.secondLocaleStrings;
     this.addChild( localeSwitch );
+
+    numberComparePreferences.showSecondLocaleProperty.link( showSecondLocale => {
+      localeSwitch.visible = showSecondLocale;
+    } );
 
     // create and add the comparison signs node
     const comparisonSignsNode = new Text( equalString, { font: new PhetFont( 90 ) } );

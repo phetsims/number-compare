@@ -18,6 +18,7 @@ import NumberCompareStrings from '../../NumberCompareStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
+import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 
 class ComparisonTextNode extends Node {
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
@@ -32,9 +33,10 @@ class ComparisonTextNode extends Node {
     // this string value is stored in a Property (instead of just setting the text directly) so it can be read
     // elsewhere in the screen view.
     this.comparisonStringProperty = new DerivedProperty(
-      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty ],
-      ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale ) =>
-        ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale ) );
+      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, phet.joist.localeProperty,
+        numberComparePreferences.secondLocaleStringsProperty ],
+      ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) =>
+        ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, numberComparePreferences.secondLocaleStringsProperty.value ) );
 
     // create and add the comparison text
     const textNode = new Text(
@@ -53,26 +55,27 @@ class ComparisonTextNode extends Node {
 
   /**
    * Builds the string based on the current numbers. Example format: "Three is less than seven"
+   * TODO: Type secondLocaleStrings to git rid of IntentionalAny
    */
   private static getComparisonString( leftCurrentNumber: number, rightCurrentNumber: number,
-                                      isPrimaryLocale: boolean ): string {
+                                      isPrimaryLocale: boolean, secondLocaleStrings: IntentionalAny ): string {
 
-    let isLessThanString = NumberCompareStrings.isLessThan;
-    let isMoreThanString = NumberCompareStrings.isMoreThan;
-    let isEqualToString = NumberCompareStrings.isEqualTo;
+    let isLessThanString = NumberCompareStrings.isLessThanStringProperty.value;
+    let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
+    let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
 
-    const secondLocaleStrings = phet.numberPlay.secondLocaleStrings;
-    if ( secondLocaleStrings && !isPrimaryLocale ) {
-      const numberPlayPrefix = 'NUMBER_PLAY/';
-      isLessThanString = secondLocaleStrings[ `${numberPlayPrefix}isLessThan` ];
-      isMoreThanString = secondLocaleStrings[ `${numberPlayPrefix}isMoreThan` ];
-      isEqualToString = secondLocaleStrings[ `${numberPlayPrefix}isEqualTo` ];
+    const numberComparePrefix = 'NUMBER_COMPARE/';
+    if ( !isPrimaryLocale ) {
+      isLessThanString = secondLocaleStrings[ `${numberComparePrefix}isLessThan` ];
+      isMoreThanString = secondLocaleStrings[ `${numberComparePrefix}isMoreThan` ];
+      isEqualToString = secondLocaleStrings[ `${numberComparePrefix}isEqualTo` ];
     }
 
-    const leftNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty,
-      leftCurrentNumber, isPrimaryLocale );
-    const rightNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty,
-      rightCurrentNumber, isPrimaryLocale );
+    // TODO: Why are these strings turning up in english always?
+    const leftNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty.value,
+      leftCurrentNumber, isPrimaryLocale, numberComparePrefix );
+    const rightNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty.value,
+      rightCurrentNumber, isPrimaryLocale, numberComparePrefix );
     let comparisonString;
 
     if ( leftCurrentNumber < rightCurrentNumber ) {
