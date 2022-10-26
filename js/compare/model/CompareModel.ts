@@ -10,7 +10,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import CompareCountingType from './CompareCountingType.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import OnesPlayArea from '../../../../number-play/js/common/model/OnesPlayArea.js';
+import CountingPlayArea from '../../../../number-play/js/common/model/CountingPlayArea.js';
 import Range from '../../../../dot/js/Range.js';
 import numberCompare from '../../numberCompare.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
@@ -19,8 +19,8 @@ class CompareModel {
   public readonly sumRange: Range; // TODO: Factor out base class with NumberPlayModel.js
   public readonly countingTypeProperty: EnumerationProperty<CompareCountingType>;
   public readonly comparisonSignsAndTextVisibleProperty: BooleanProperty;
-  public readonly leftPlayArea: OnesPlayArea;
-  public readonly rightPlayArea: OnesPlayArea;
+  public readonly leftPlayArea: CountingPlayArea;
+  public readonly rightPlayArea: CountingPlayArea;
   public readonly isPrimaryLocaleProperty: BooleanProperty;
   public readonly leftCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
   public readonly rightCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
@@ -39,8 +39,8 @@ class CompareModel {
     this.isPrimaryLocaleProperty = new BooleanProperty( true );
 
     // create the left and right play areas
-    this.leftPlayArea = new OnesPlayArea( highestCount, new BooleanProperty( true ), 'leftPlayArea' );
-    this.rightPlayArea = new OnesPlayArea( highestCount, new BooleanProperty( true ), 'rightPlayArea' );
+    this.leftPlayArea = new CountingPlayArea( highestCount, new BooleanProperty( true ), 'leftPlayArea' );
+    this.rightPlayArea = new CountingPlayArea( highestCount, new BooleanProperty( true ), 'rightPlayArea' );
   }
 
   /**

@@ -213,7 +213,7 @@ class CompareScreenView extends ScreenView {
     } );
     this.addChild( resetAllButton );
 
-    // create and add a button to organize the onesAccordionBox paper ones in a grid
+    // create and add a button to organize the left counting objects in a grid
     const leftOrganizeButton = new OrganizeButton( NumberPlayColors.mediumPurpleBackgroundColorProperty, () => {
       model.leftPlayArea.organizeObjects();
     } );
