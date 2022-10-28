@@ -61,7 +61,6 @@ export default class NumberComparePreferencesNode extends NumberSuiteCommonPrefe
       const isCompareScreen = screens.includes( 1 );
       const isLabScreen = screens.includes( 2 );
 
-      this.readAloudToggleSwitch.enabled = isSecondLocaleScreen;
       this.showSecondLocaleControl.enabled = isSecondLocaleScreen;
       compareMaxControl.enabled = isCompareScreen;
       this.showLabOnesToggleSwitch.enabled = isLabScreen;

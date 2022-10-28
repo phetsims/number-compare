@@ -11,7 +11,8 @@ import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
 import NumberPlayQueryParameters from './../../number-play/js/common/NumberPlayQueryParameters.js';
-import numberPlaySpeechSynthesisAnnouncer from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
+import numberPlaySpeechSynthesisAnnouncer
+  from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
@@ -21,6 +22,8 @@ import NumberCompareStrings from './NumberCompareStrings.js';
 import LabScreen from './lab/LabScreen.js';
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
+import numberComparePreferences from './common/model/numberComparePreferences.js';
+import ReadAloudToggleSwitch from '../../number-play/js/common/view/ReadAloudToggleSwitch.js';
 
 const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -38,6 +41,11 @@ const simOptions: SimOptions = {
     simulationOptions: {
       customPreferences: [ {
         createContent: () => new NumberComparePreferencesNode()
+      } ]
+    },
+    audioOptions: {
+      customPreferences: [ {
+        createContent: () => new ReadAloudToggleSwitch( numberComparePreferences, [ 1 ] )
       } ]
     }
   } )
