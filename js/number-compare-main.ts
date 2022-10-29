@@ -11,8 +11,7 @@ import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
 import NumberPlayQueryParameters from './../../number-play/js/common/NumberPlayQueryParameters.js';
-import numberPlaySpeechSynthesisAnnouncer
-  from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
+import numberPlaySpeechSynthesisAnnouncer from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
