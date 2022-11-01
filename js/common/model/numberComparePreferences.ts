@@ -11,5 +11,6 @@ import numberCompare from '../../numberCompare.js';
 import NumberSuiteCommonPreferences from '../../../../number-play/js/common/model/NumberSuiteCommonPreferences.js';
 
 const numberComparePreferences = new NumberSuiteCommonPreferences();
+
 numberCompare.register( 'numberComparePreferences', numberComparePreferences );
 export default numberComparePreferences;
