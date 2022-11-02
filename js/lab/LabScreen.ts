@@ -16,8 +16,10 @@ import NumberPlayStrings from '../../../number-play/js/NumberPlayStrings.js';
 import LabModel from '../../../number-play/js/lab/model/LabModel.js';
 import LabScreenView from '../../../number-play/js/lab/view/LabScreenView.js';
 import numberCompare from '../numberCompare.js';
+import NumberSuiteCommonPreferences from '../../../number-play/js/common/model/NumberSuiteCommonPreferences.js';
+import numberComparePreferences from '../common/model/numberComparePreferences.js';
 
-class LabScreen extends Screen<LabModel, LabScreenView> {
+class LabScreen extends Screen<LabModel, LabScreenView<NumberSuiteCommonPreferences>> {
 
   public constructor( tandem: Tandem ) {
 
@@ -32,9 +34,9 @@ class LabScreen extends Screen<LabModel, LabScreenView> {
     };
 
     super(
-      () => new LabModel(
-        tandem.createTandem( 'model' ) ),
-      ( model: LabModel ) => new LabScreenView( model, [ '<', '>', '=', '+', '-' ], tandem.createTandem( 'view' ) ),
+      () => new LabModel( tandem.createTandem( 'model' ) ),
+      ( model: LabModel ) => new LabScreenView( model, [ '<', '>', '=', '+', '-' ], numberComparePreferences,
+        tandem.createTandem( 'view' ) ),
       options
     );
   }
