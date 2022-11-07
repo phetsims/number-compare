@@ -18,11 +18,11 @@ import audioManager from '../../joist/js/audioManager.js';
 import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
 import soundManager from '../../tambo/js/soundManager.js';
 import NumberCompareStrings from './NumberCompareStrings.js';
-import LabScreen from './lab/LabScreen.js';
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
 import numberComparePreferences from './common/model/numberComparePreferences.js';
 import ReadAloudToggleSwitch from '../../number-play/js/common/view/ReadAloudToggleSwitch.js';
+import LabScreen from '../../number-play/js/lab/LabScreen.js';
 
 const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -61,7 +61,7 @@ simLauncher.launch( () => {
 
   const sim = new Sim( numberPlayTitleStringProperty, [
     new CompareScreen( Tandem.ROOT.createTandem( 'compareScreen' ) ),
-    new LabScreen( Tandem.ROOT.createTandem( 'numberCompareLabScreen' ) )
+    new LabScreen( [ '<', '>', '=', '+', '-' ], numberComparePreferences, Tandem.ROOT.createTandem( 'numberCompareLabScreen' ) )
   ], simOptions );
   sim.start();
 
