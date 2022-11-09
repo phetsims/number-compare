@@ -158,15 +158,11 @@ class CompareScreenView extends ScreenView {
     // create and add the LocaleSwitch
     const localeSwitchXMargin = 15; // empirically determined
     const localeSwitchMaxWidth = localeSwitchXRange.getLength() - localeSwitchXMargin * 2;
-    const localeSwitch = new LocaleSwitch( model.isPrimaryLocaleProperty,
+    const localeSwitch = new LocaleSwitch( model.isPrimaryLocaleProperty, numberComparePreferences.showSecondLocaleProperty,
       numberComparePreferences.secondLocaleStringsProperty, localeSwitchMaxWidth );
     localeSwitch.centerX = localeSwitchXRange.getCenter();
     localeSwitch.centerY = localeSwitchCenterY;
     this.addChild( localeSwitch );
-
-    numberComparePreferences.showSecondLocaleProperty.link( showSecondLocale => {
-      localeSwitch.visible = showSecondLocale;
-    } );
 
     // create and add the comparison signs node
     const comparisonSignsNode = new Text( equalString, { font: new PhetFont( 90 ) } );
