@@ -43,7 +43,7 @@ const simOptions: SimOptions = {
     },
     audioOptions: {
       customPreferences: [ {
-        createContent: () => new ReadAloudToggleSwitch( numberComparePreferences, [ 1 ] )
+        createContent: () => new ReadAloudToggleSwitch( numberComparePreferences, [ 1 ], NumberCompareStrings.readAloudStringProperty )
       } ]
     }
   } )
