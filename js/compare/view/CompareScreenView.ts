@@ -27,12 +27,13 @@ import CompareNumberLineNode from './CompareNumberLineNode.js';
 import ComparisonTextNode from './ComparisonTextNode.js';
 import CountingAccordionBox, { CountingAccordionBoxOptions } from '../../../../number-play/js/common/view/CountingAccordionBox.js';
 import OrganizeButton from '../../../../number-play/js/common/view/OrganizeButton.js';
-import numberPlaySpeechSynthesisAnnouncer from '../../../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
+import numberCompareSpeechSynthesisAnnouncer from '../../common/view/numberCompareSpeechSynthesisAnnouncer.js';
+import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -133,8 +134,9 @@ class CompareScreenView extends ScreenView {
     let localeSwitchCenterY;
 
     // create and add the SpeechSynthesisButton if the announcer is initialized
-    if ( numberPlaySpeechSynthesisAnnouncer.initialized ) {
-      const speechSynthesisButton = new SpeechSynthesisButton( model.isPrimaryLocaleProperty, numberComparePreferences, {
+    if ( numberCompareSpeechSynthesisAnnouncer.initialized ) {
+      const speechSynthesisButton = new SpeechSynthesisButton( model.isPrimaryLocaleProperty, numberComparePreferences,
+        numberCompareSpeechSynthesisAnnouncer, numberCompareUtteranceQueue, {
           stringProperty: comparisonTextNode.comparisonStringProperty,
           numberProperty: model.leftPlayArea.sumProperty,
           secondNumberProperty: model.rightPlayArea.sumProperty

@@ -10,7 +10,6 @@ import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
-import numberPlaySpeechSynthesisAnnouncer from './../../number-play/js/common/view/numberPlaySpeechSynthesisAnnouncer.js';
 import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
@@ -22,6 +21,7 @@ import NumberComparePreferencesNode from './common/view/NumberComparePreferences
 import numberComparePreferences from './common/model/numberComparePreferences.js';
 import ReadAloudToggleSwitch from '../../number-play/js/common/view/ReadAloudToggleSwitch.js';
 import LabScreen from '../../number-play/js/lab/LabScreen.js';
+import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 
 const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -63,7 +63,7 @@ simLauncher.launch( () => {
 
   // initialize the SpeechSynthesisAnnouncer that will use speech synthesis to speak numbers
   if ( SpeechSynthesisAnnouncer.isSpeechSynthesisSupported() ) {
-    numberPlaySpeechSynthesisAnnouncer.initialize( Display.userGestureEmitter, {
+    numberCompareSpeechSynthesisAnnouncer.initialize( Display.userGestureEmitter, {
 
       // specify the Properties that control whether or not output is allowed with speech synthesis
       speechAllowedProperty: new DerivedProperty( [
@@ -77,6 +77,6 @@ simLauncher.launch( () => {
       } )
     } );
 
-    numberPlaySpeechSynthesisAnnouncer.enabledProperty.value = true;
+    numberCompareSpeechSynthesisAnnouncer.enabledProperty.value = true;
   }
 } );
