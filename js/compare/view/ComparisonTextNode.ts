@@ -36,7 +36,7 @@ class ComparisonTextNode extends Node {
       [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, phet.joist.localeProperty,
         numberComparePreferences.secondLocaleStringsProperty ],
       ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) =>
-        ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, numberComparePreferences.secondLocaleStringsProperty.value ) );
+        ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings ) );
 
     // create and add the comparison text
     const textNode = new Text(
@@ -55,7 +55,6 @@ class ComparisonTextNode extends Node {
 
   /**
    * Builds the string based on the current numbers. Example format: "Three is less than seven"
-   * TODO: Type secondLocaleStrings to git rid of IntentionalAny
    */
   private static getComparisonString( leftCurrentNumber: number, rightCurrentNumber: number,
                                       isPrimaryLocale: boolean, secondLocaleStrings: IntentionalAny ): string {
@@ -64,6 +63,7 @@ class ComparisonTextNode extends Node {
     let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
     let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
 
+    // TODO: factor these out somewhere?
     const numberComparePrefix = 'NUMBER_COMPARE/';
     if ( !isPrimaryLocale ) {
       isLessThanString = secondLocaleStrings[ `${numberComparePrefix}isLessThan` ];
@@ -71,11 +71,11 @@ class ComparisonTextNode extends Node {
       isEqualToString = secondLocaleStrings[ `${numberComparePrefix}isEqualTo` ];
     }
 
-    // TODO: Why are these strings turning up in english always?
-    const leftNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty.value,
-      leftCurrentNumber, isPrimaryLocale, numberComparePrefix );
-    const rightNumberString = NumberPlayConstants.numberToString( numberComparePreferences.secondLocaleStringsProperty.value,
-      rightCurrentNumber, isPrimaryLocale, numberComparePrefix );
+    const numberPlayPrefix = 'NUMBER_PLAY/';
+    const leftNumberString = NumberPlayConstants.numberToString( secondLocaleStrings,
+      leftCurrentNumber, isPrimaryLocale, numberPlayPrefix );
+    const rightNumberString = NumberPlayConstants.numberToString( secondLocaleStrings,
+      rightCurrentNumber, isPrimaryLocale, numberPlayPrefix );
     let comparisonString;
 
     if ( leftCurrentNumber < rightCurrentNumber ) {
