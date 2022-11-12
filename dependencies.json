@@ -1,5 +1,5 @@
 {
-  "comment": "# number-compare 1.0.0-dev.2 Thu Nov 10 2022 13:43:33 GMT-0700 (Mountain Standard Time)",
+  "comment": "# number-compare 1.0.0-dev.3 Fri Nov 11 2022 17:01:42 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "master"
@@ -33,11 +33,11 @@
     "branch": "master"
   },
   "number-compare": {
-    "sha": "2a9953b8ecac6ab95ee3e5a03251cffeb1a31847",
+    "sha": "abd3eca50b720f28f68d8d4d5e77fe11dee9abfa",
     "branch": "master"
   },
   "number-play": {
-    "sha": "0aae5f8687a76a82785b5303bd14ad6e5ed9790f",
+    "sha": "7a36bafce8f256a530e6e2231d0dc6a97c8b689e",
     "branch": "master"
   },
   "perennial-alias": {
