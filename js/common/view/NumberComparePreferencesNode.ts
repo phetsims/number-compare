@@ -25,7 +25,7 @@ export default class NumberComparePreferencesNode extends NumberSuiteCommonPrefe
       const isLabScreen = screens.includes( 2 );
 
       this.showSecondLocaleControl.enabled = isSecondLocaleScreen;
-      this.showLabOnesToggleSwitch.enabled = isLabScreen;
+      this.showLabOnesControl.enabled = isLabScreen;
     }
   }
 }
