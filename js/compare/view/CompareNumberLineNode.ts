@@ -154,10 +154,10 @@ class CompareNumberLineNode extends Node {
  * Enumeration for specifying which side the triangle should go on for the indicator node above.
  */
 class LeftRightDirection extends EnumerationValue {
-  public static LEFT = new LeftRightDirection();
-  public static RIGHT = new LeftRightDirection();
+  public static readonly LEFT = new LeftRightDirection();
+  public static readonly RIGHT = new LeftRightDirection();
 
-  public static enumeration = new Enumeration( LeftRightDirection );
+  public static readonly enumeration = new Enumeration( LeftRightDirection );
 }
 
 numberCompare.register( 'CompareNumberLineNode', CompareNumberLineNode );

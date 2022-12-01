@@ -11,11 +11,11 @@ import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import numberCompare from '../../numberCompare.js';
 
 class CompareCountingType extends EnumerationValue {
-  public static BLOCKS = new CompareCountingType();
-  public static NUMBER_LINE = new CompareCountingType();
-  public static NONE = new CompareCountingType();
+  public static readonly BLOCKS = new CompareCountingType();
+  public static readonly NUMBER_LINE = new CompareCountingType();
+  public static readonly NONE = new CompareCountingType();
 
-  public static enumeration = new Enumeration( CompareCountingType );
+  public static readonly enumeration = new Enumeration( CompareCountingType );
 }
 
 numberCompare.register( 'CompareCountingType', CompareCountingType );
