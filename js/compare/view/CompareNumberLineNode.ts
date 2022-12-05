@@ -125,7 +125,8 @@ class CompareNumberLineNode extends Node {
    * Creates an indicator for the number line, which consists of a point with a triangle attached to it on the left or
    * right side.
    */
-  private static getCurrentNumberIndicatorNode( triangleSide: LeftRightDirection, triangleColor: TPaint ): Circle {
+  private static getCurrentNumberIndicatorNode( triangleSide: LeftRightDirection, triangleColor: TPaint ): Node {
+    const indicatorNode = new Node();
 
     // create the center point
     const pointRadius = 5;
@@ -133,7 +134,7 @@ class CompareNumberLineNode extends Node {
 
     // create and add the triangle on the left or right side
     const sign = triangleSide === LeftRightDirection.LEFT ? -1 : 1;
-    const triangleOrigin = new Vector2( sign * ( pointRadius - 1 ), 0 ); // empirically determined
+    const triangleOrigin = new Vector2( sign * ( pointRadius - 1.5 ), 0 ); // empirically determined to overlap the point
     const triangleLongerSideLength = 20; // empirically determined
     const triangleShorterSideLength = triangleLongerSideLength * 0.8; // empirically determined
     const triangleShape = new Shape()
@@ -144,9 +145,10 @@ class CompareNumberLineNode extends Node {
     const triangleNode = new Path( triangleShape, {
       fill: triangleColor
     } );
-    pointNode.addChild( triangleNode );
+    indicatorNode.addChild( triangleNode );
+    indicatorNode.addChild( pointNode );
 
-    return pointNode;
+    return indicatorNode;
   }
 }
 
