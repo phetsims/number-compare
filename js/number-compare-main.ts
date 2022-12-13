@@ -19,7 +19,7 @@ import NumberCompareStrings from './NumberCompareStrings.js';
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
 import numberComparePreferences from './common/model/numberComparePreferences.js';
-import ReadAloudToggleSwitch from '../../number-play/js/common/view/ReadAloudToggleSwitch.js';
+import ReadAloudPreferenceControl from '../../number-play/js/common/view/ReadAloudPreferenceControl.js';
 import LabScreen from '../../number-play/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 
@@ -43,7 +43,8 @@ const simOptions: SimOptions = {
     },
     audioOptions: {
       customPreferences: [ {
-        createContent: () => new ReadAloudToggleSwitch( numberComparePreferences, [ 1 ], NumberCompareStrings.readAloudStringProperty )
+        createContent: () => new ReadAloudPreferenceControl( numberComparePreferences, numberCompareSpeechSynthesisAnnouncer,
+          [ 1 ], NumberCompareStrings.readAloudStringProperty )
       } ]
     }
   } )
