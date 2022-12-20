@@ -8,7 +8,7 @@
  */
 
 import numberCompare from '../../numberCompare.js';
-import NumberSuiteCommonPreferences from '../../../../number-play/js/common/model/NumberSuiteCommonPreferences.js';
+import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 
 const numberComparePreferences = new NumberSuiteCommonPreferences();
 

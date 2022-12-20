@@ -18,7 +18,6 @@ import NumberPlayQueryParameters from '../../../number-play/js/common/NumberPlay
 import NumberCompareStrings from '../NumberCompareStrings.js';
 import numberCompare from '../numberCompare.js';
 
-
 class CompareScreen extends Screen<CompareModel, CompareScreenView> {
 
   public constructor( tandem: Tandem ) {

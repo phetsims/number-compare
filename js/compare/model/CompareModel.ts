@@ -10,7 +10,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import CompareCountingType from './CompareCountingType.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import CountingPlayArea from '../../../../number-play/js/common/model/CountingPlayArea.js';
+import CountingPlayArea from '../../../../number-suite-common/js/common/model/CountingPlayArea.js';
 import Range from '../../../../dot/js/Range.js';
 import numberCompare from '../../numberCompare.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';

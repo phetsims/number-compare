@@ -19,8 +19,8 @@ import NumberCompareStrings from './NumberCompareStrings.js';
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
 import numberComparePreferences from './common/model/numberComparePreferences.js';
-import ReadAloudPreferenceControl from '../../number-play/js/common/view/ReadAloudPreferenceControl.js';
-import LabScreen from '../../number-play/js/lab/LabScreen.js';
+import ReadAloudPreferenceControl from '../../number-suite-common/js/common/view/ReadAloudPreferenceControl.js';
+import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 
 const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;

@@ -7,7 +7,7 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import NumberSuiteCommonSpeechSynthesisAnnouncer from '../../../../number-play/js/common/view/NumberSuiteCommonSpeechSynthesisAnnouncer.js';
+import NumberSuiteCommonSpeechSynthesisAnnouncer from '../../../../number-suite-common/js/common/view/NumberSuiteCommonSpeechSynthesisAnnouncer.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 

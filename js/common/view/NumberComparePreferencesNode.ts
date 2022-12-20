@@ -9,8 +9,8 @@
 
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
-import NumberSuiteCommonPreferencesNode from '../../../../number-play/js/common/view/NumberSuiteCommonPreferencesNode.js';
-import NumberSuiteCommonPreferences from '../../../../number-play/js/common/model/NumberSuiteCommonPreferences.js';
+import NumberSuiteCommonPreferencesNode from '../../../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
+import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 
 export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode<NumberSuiteCommonPreferences> {
 
