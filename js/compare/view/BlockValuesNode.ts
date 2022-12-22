@@ -8,9 +8,9 @@
  */
 
 import { Node, Rectangle, VBox } from '../../../../scenery/js/imports.js';
-import NumberPlayColors from '../../../../number-play/js/common/NumberPlayColors.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import numberCompare from '../../numberCompare.js';
+import NumberCompareColors from '../../common/NumberCompareColors.js';
 
 // constants
 const SIDE_LENGTH = 20.8; // the side length of one block
@@ -41,7 +41,7 @@ class BlockValuesNode extends Node {
     // create and add the left blocks
     _.times( leftCurrentNumber, () => {
       leftBlocks.push( new Rectangle( 0, 0, SIDE_LENGTH, SIDE_LENGTH, {
-        fill: NumberPlayColors.purpleHighlightColorProperty
+        fill: NumberCompareColors.purpleHighlightColorProperty
       } ) );
     } );
     const leftStack = new VBox( {
@@ -55,7 +55,7 @@ class BlockValuesNode extends Node {
     // create and add the right blocks
     _.times( rightCurrentNumber, () => {
       rightBlocks.push( new Rectangle( 0, 0, SIDE_LENGTH, SIDE_LENGTH, {
-        fill: NumberPlayColors.orangeHighlightColorProperty
+        fill: NumberCompareColors.orangeHighlightColorProperty
       } ) );
     } );
     const rightStack = new VBox( {

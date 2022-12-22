@@ -11,12 +11,12 @@ import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import { Image } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import compareScreenIcon_png from '../../images/compareScreenIcon_png.js';
-import NumberPlayColors from '../../../number-play/js/common/NumberPlayColors.js';
 import CompareModel from './model/CompareModel.js';
 import CompareScreenView from './view/CompareScreenView.js';
 import NumberPlayQueryParameters from '../../../number-play/js/common/NumberPlayQueryParameters.js';
 import NumberCompareStrings from '../NumberCompareStrings.js';
 import numberCompare from '../numberCompare.js';
+import NumberCompareColors from '../common/NumberCompareColors.js';
 
 class CompareScreen extends Screen<CompareModel, CompareScreenView> {
 
@@ -24,7 +24,7 @@ class CompareScreen extends Screen<CompareModel, CompareScreenView> {
 
     const options = {
       name: NumberCompareStrings.screen.compareStringProperty,
-      backgroundColorProperty: NumberPlayColors.whiteBackgroundColorProperty,
+      backgroundColorProperty: NumberCompareColors.whiteBackgroundColorProperty,
       homeScreenIcon: new ScreenIcon( new Image( compareScreenIcon_png ), {
         maxIconWidthProportion: 1,
         maxIconHeightProportion: 1
