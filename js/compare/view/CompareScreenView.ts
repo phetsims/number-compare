@@ -14,7 +14,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import NumberPlayConstants from '../../../../number-play/js/common/NumberPlayConstants.js';
 import LocaleSwitch from '../../../../number-suite-common/js/common/view/LocaleSwitch.js';
 import SpeechSynthesisButton from '../../../../number-suite-common/js/common/view/SpeechSynthesisButton.js';
 import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/TotalAccordionBox.js';
@@ -35,6 +34,7 @@ import numberCompareSpeechSynthesisAnnouncer from '../../common/view/numberCompa
 import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
 import NumberCompareColors from '../../common/NumberCompareColors.js';
 import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/NumberSuiteCommonColors.js';
+import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -76,7 +76,7 @@ class CompareScreenView extends ScreenView {
         expandedProperty: this.leftTotalAccordionBoxExpandedProperty,
         fill: NumberCompareColors.mediumPurpleBackgroundColorProperty
       }, totalAccordionBoxOptions ) );
-    leftTotalAccordionBox.top = this.layoutBounds.minY + NumberPlayConstants.SCREEN_VIEW_PADDING_Y;
+    leftTotalAccordionBox.top = this.layoutBounds.minY + NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_Y;
     this.addChild( leftTotalAccordionBox );
 
     // create and add the right TotalAccordionBox
@@ -93,13 +93,13 @@ class CompareScreenView extends ScreenView {
       model.leftPlayArea,
       model.leftCountingObjectTypeProperty,
       LOWER_ACCORDION_BOX_CONTENT_WIDTH,
-      NumberPlayConstants.TWENTY_LOWER_ACCORDION_BOX_HEIGHT, {
+      NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT, {
         countingObjectTypes: CountingObjectType.enumeration.values,
         expandedProperty: this.leftCountingAccordionBoxExpandedProperty,
         fill: NumberCompareColors.mediumPurpleBackgroundColorProperty
       } as unknown as CountingAccordionBoxOptions );
-    leftCountingAccordionBox.left = NumberPlayConstants.ACCORDION_BOX_MARGIN_X;
-    leftCountingAccordionBox.bottom = this.layoutBounds.maxY - NumberPlayConstants.SCREEN_VIEW_PADDING_Y;
+    leftCountingAccordionBox.left = NumberSuiteCommonConstants.ACCORDION_BOX_MARGIN_X;
+    leftCountingAccordionBox.bottom = this.layoutBounds.maxY - NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_Y;
     this.addChild( leftCountingAccordionBox );
 
     // create and add the right CountingAccordionBox
@@ -107,12 +107,12 @@ class CompareScreenView extends ScreenView {
       model.rightPlayArea,
       model.rightCountingObjectTypeProperty,
       LOWER_ACCORDION_BOX_CONTENT_WIDTH,
-      NumberPlayConstants.TWENTY_LOWER_ACCORDION_BOX_HEIGHT, {
+      NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT, {
         countingObjectTypes: CountingObjectType.enumeration.values,
         expandedProperty: this.rightCountingAccordionBoxExpandedProperty,
         fill: NumberSuiteCommonColors.lightOrangeBackgroundColorProperty
       } as unknown as CountingAccordionBoxOptions );
-    rightCountingAccordionBox.right = this.layoutBounds.maxX - NumberPlayConstants.ACCORDION_BOX_MARGIN_X;
+    rightCountingAccordionBox.right = this.layoutBounds.maxX - NumberSuiteCommonConstants.ACCORDION_BOX_MARGIN_X;
     rightCountingAccordionBox.bottom = leftCountingAccordionBox.bottom;
     this.addChild( rightCountingAccordionBox );
 
@@ -143,7 +143,7 @@ class CompareScreenView extends ScreenView {
           secondNumberProperty: model.rightPlayArea.sumProperty
         }
       );
-      speechSynthesisButton.left = NumberPlayConstants.SCREEN_VIEW_PADDING_X;
+      speechSynthesisButton.left = NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X;
       speechSynthesisButton.top = rightTotalAccordionBox.top;
       this.addChild( speechSynthesisButton );
 
@@ -175,7 +175,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the CompareCountingTypeRadioButtonGroup
     const countingTypeRadioButtonGroup = new CompareCountingTypeRadioButtonGroup( model.countingTypeProperty );
-    countingTypeRadioButtonGroup.right = this.layoutBounds.maxX - NumberPlayConstants.SCREEN_VIEW_PADDING_X;
+    countingTypeRadioButtonGroup.right = this.layoutBounds.maxX - NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X;
     countingTypeRadioButtonGroup.top = leftTotalAccordionBox.top;
     this.addChild( countingTypeRadioButtonGroup );
 
@@ -191,7 +191,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the CompareNumberLineNode
     const compareNumberLineNode = new CompareNumberLineNode(
-      NumberPlayConstants.TWENTY_LOWER_ACCORDION_BOX_HEIGHT - 22,
+      NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT - 22,
       model.leftPlayArea.sumProperty,
       model.rightPlayArea.sumProperty,
       model.sumRange
@@ -207,8 +207,8 @@ class CompareScreenView extends ScreenView {
         model.reset();
         this.reset();
       },
-      right: this.layoutBounds.maxX - NumberPlayConstants.SCREEN_VIEW_PADDING_X,
-      bottom: this.layoutBounds.maxY - NumberPlayConstants.SCREEN_VIEW_PADDING_Y,
+      right: this.layoutBounds.maxX - NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X,
+      bottom: this.layoutBounds.maxY - NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_Y,
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
     this.addChild( resetAllButton );
@@ -217,7 +217,7 @@ class CompareScreenView extends ScreenView {
     const leftOrganizeButton = new OrganizeButton( NumberCompareColors.mediumPurpleBackgroundColorProperty, () => {
       model.leftPlayArea.organizeObjects();
     } );
-    leftOrganizeButton.left = NumberPlayConstants.SCREEN_VIEW_PADDING_X;
+    leftOrganizeButton.left = NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X;
     leftOrganizeButton.top = leftCountingAccordionBox.top;
     this.addChild( leftOrganizeButton );
 

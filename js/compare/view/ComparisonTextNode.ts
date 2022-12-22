@@ -11,7 +11,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
-import NumberPlayConstants from '../../../../number-play/js/common/NumberPlayConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
@@ -19,6 +18,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
+import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 
 class ComparisonTextNode extends Node {
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
@@ -42,7 +42,7 @@ class ComparisonTextNode extends Node {
     const textNode = new Text(
       this.comparisonStringProperty.value, {
         font: new PhetFont( 16 ),
-        maxWidth: layoutBounds.erodedX( NumberPlayConstants.ACCORDION_BOX_MARGIN_X ).width
+        maxWidth: layoutBounds.erodedX( NumberSuiteCommonConstants.ACCORDION_BOX_MARGIN_X ).width
       } );
     this.addChild( textNode );
 
@@ -71,11 +71,10 @@ class ComparisonTextNode extends Node {
       isEqualToString = secondLocaleStrings[ `${numberComparePrefix}isEqualTo` ];
     }
 
-    const numberPlayPrefix = 'NUMBER_PLAY/';
-    const leftNumberString = NumberPlayConstants.numberToString( secondLocaleStrings,
-      leftCurrentNumber, isPrimaryLocale, numberPlayPrefix );
-    const rightNumberString = NumberPlayConstants.numberToString( secondLocaleStrings,
-      rightCurrentNumber, isPrimaryLocale, numberPlayPrefix );
+    const leftNumberString = NumberSuiteCommonConstants.numberToString( secondLocaleStrings,
+      leftCurrentNumber, isPrimaryLocale );
+    const rightNumberString = NumberSuiteCommonConstants.numberToString( secondLocaleStrings,
+      rightCurrentNumber, isPrimaryLocale );
     let comparisonString;
 
     if ( leftCurrentNumber < rightCurrentNumber ) {
