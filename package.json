@@ -14,7 +14,8 @@
     "phetLibs": [
       "counting-common",
       "twixt",
-      "number-play"
+      "number-play",
+      "number-suite-common"
     ],
     "simFeatures": {
       "supportsSound": true
