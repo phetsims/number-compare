@@ -22,6 +22,8 @@ class CompareModel implements TModel {
   public readonly comparisonSignsAndTextVisibleProperty: BooleanProperty;
   public readonly leftPlayArea: CountingPlayArea;
   public readonly rightPlayArea: CountingPlayArea;
+
+  // whether the sim is using the locale it was loaded in or a second locale
   public readonly isPrimaryLocaleProperty: BooleanProperty;
   public readonly leftCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
   public readonly rightCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
@@ -36,7 +38,6 @@ class CompareModel implements TModel {
     this.countingTypeProperty = new EnumerationProperty( CompareCountingType.BLOCKS );
     this.comparisonSignsAndTextVisibleProperty = new BooleanProperty( true );
 
-    // whether the sim is using the locale it was loaded in or a second locale
     this.isPrimaryLocaleProperty = new BooleanProperty( true );
 
     // create the left and right play areas

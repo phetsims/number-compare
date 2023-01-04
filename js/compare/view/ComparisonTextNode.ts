@@ -21,6 +21,10 @@ import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 
 class ComparisonTextNode extends Node {
+
+  // (read-only) - update the comparison string when either current number changes.
+  // this string value is stored in a Property (instead of just setting the text directly) so it can be read
+  // elsewhere in the screen view.
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
 
   public constructor( leftCurrentNumberProperty: NumberProperty,
@@ -29,9 +33,6 @@ class ComparisonTextNode extends Node {
                       layoutBounds: Bounds2 ) {
     super();
 
-    // (read-only) - update the comparison string when either current number changes.
-    // this string value is stored in a Property (instead of just setting the text directly) so it can be read
-    // elsewhere in the screen view.
     this.comparisonStringProperty = new DerivedProperty(
       [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, phet.joist.localeProperty,
         numberComparePreferences.secondLocaleStringsProperty ],
