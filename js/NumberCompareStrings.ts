@@ -10,20 +10,14 @@ import numberCompare from './numberCompare.js';
 
 type StringsType = {
   'number-compare': {
-    'title': string;
     'titleStringProperty': LinkableProperty<string>;
   };
   'screen': {
-    'compare': string;
     'compareStringProperty': LinkableProperty<string>;
   };
-  'isLessThan': string;
   'isLessThanStringProperty': LinkableProperty<string>;
-  'isMoreThan': string;
   'isMoreThanStringProperty': LinkableProperty<string>;
-  'isEqualTo': string;
   'isEqualToStringProperty': LinkableProperty<string>;
-  'readAloud': string;
   'readAloudStringProperty': LinkableProperty<string>;
 };
 
