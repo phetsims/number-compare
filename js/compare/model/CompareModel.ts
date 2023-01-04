@@ -14,8 +14,9 @@ import CountingPlayArea from '../../../../number-suite-common/js/common/model/Co
 import Range from '../../../../dot/js/Range.js';
 import numberCompare from '../../numberCompare.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
+import TModel from '../../../../joist/js/TModel.js';
 
-class CompareModel {
+class CompareModel implements TModel {
   public readonly sumRange: Range; // TODO: Factor out base class with NumberPlayModel.js
   public readonly countingTypeProperty: EnumerationProperty<CompareCountingType>;
   public readonly comparisonSignsAndTextVisibleProperty: BooleanProperty;
