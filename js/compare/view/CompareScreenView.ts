@@ -35,6 +35,7 @@ import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranc
 import NumberCompareColors from '../../common/NumberCompareColors.js';
 import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/NumberSuiteCommonColors.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
+import Property from '../../../../axon/js/Property.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -46,10 +47,10 @@ const equalString = '=';
 const greaterThanString = '>';
 
 class CompareScreenView extends ScreenView {
-  private readonly leftTotalAccordionBoxExpandedProperty: BooleanProperty;
-  private readonly rightTotalAccordionBoxExpandedProperty: BooleanProperty;
-  private readonly rightCountingAccordionBoxExpandedProperty: BooleanProperty;
-  private readonly leftCountingAccordionBoxExpandedProperty: BooleanProperty;
+  private readonly leftTotalAccordionBoxExpandedProperty: Property<boolean>;
+  private readonly rightTotalAccordionBoxExpandedProperty: Property<boolean>;
+  private readonly rightCountingAccordionBoxExpandedProperty: Property<boolean>;
+  private readonly leftCountingAccordionBoxExpandedProperty: Property<boolean>;
 
   public constructor( model: CompareModel, tandem: Tandem ) {
 

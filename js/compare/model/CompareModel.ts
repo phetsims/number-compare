@@ -15,16 +15,17 @@ import Range from '../../../../dot/js/Range.js';
 import numberCompare from '../../numberCompare.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import TModel from '../../../../joist/js/TModel.js';
+import Property from '../../../../axon/js/Property.js';
 
 class CompareModel implements TModel {
   public readonly sumRange: Range; // TODO: Factor out base class with NumberPlayModel.js
   public readonly countingTypeProperty: EnumerationProperty<CompareCountingType>;
-  public readonly comparisonSignsAndTextVisibleProperty: BooleanProperty;
+  public readonly comparisonSignsAndTextVisibleProperty: Property<boolean>;
   public readonly leftPlayArea: CountingPlayArea;
   public readonly rightPlayArea: CountingPlayArea;
 
   // whether the sim is using the locale it was loaded in or a second locale
-  public readonly isPrimaryLocaleProperty: BooleanProperty;
+  public readonly isPrimaryLocaleProperty: Property<boolean>;
   public readonly leftCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
   public readonly rightCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
 
