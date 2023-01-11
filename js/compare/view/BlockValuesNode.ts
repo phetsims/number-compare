@@ -70,6 +70,11 @@ class BlockValuesNode extends Node {
       children: [ leftStack, rightStack, baseNode ]
     } );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 numberCompare.register( 'BlockValuesNode', BlockValuesNode );

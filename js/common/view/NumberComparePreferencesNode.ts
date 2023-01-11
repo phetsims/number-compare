@@ -28,6 +28,11 @@ export default class NumberComparePreferencesNode extends NumberSuiteCommonPrefe
       this.showLabOnesControl.enabled = isLabScreen;
     }
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 numberCompare.register( 'NumberComparePreferencesNode', NumberComparePreferencesNode );
