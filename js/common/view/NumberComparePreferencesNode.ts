@@ -1,4 +1,4 @@
-// Copyright 2022, University of Colorado Boulder
+// Copyright 2022-2023, University of Colorado Boulder
 
 /**
  * NumberComparePreferencesNode is the user interface for sim-specific preferences for Number Compare, accessed via the
