@@ -36,6 +36,7 @@ import NumberCompareColors from '../../common/NumberCompareColors.js';
 import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/NumberSuiteCommonColors.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import Property from '../../../../axon/js/Property.js';
+import { NumberSuiteCommonAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/NumberSuiteCommonAccordionBox.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -73,8 +74,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the left TotalAccordionBox
     const leftTotalAccordionBox = new TotalAccordionBox( model.leftPlayArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
-      optionize<TotalAccordionBoxOptions, EmptySelfOptions>()( {
-        // @ts-expect-error TODO CM: not sure about this one, can you help? https://github.com/phetsims/chipper/issues/1360
+      optionize<TotalAccordionBoxOptions, EmptySelfOptions, NumberSuiteCommonAccordionBoxOptions>()( {
         expandedProperty: this.leftTotalAccordionBoxExpandedProperty,
         fill: NumberCompareColors.mediumPurpleBackgroundColorProperty
       }, totalAccordionBoxOptions ) );
@@ -83,8 +83,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the right TotalAccordionBox
     const rightTotalAccordionBox = new TotalAccordionBox( model.rightPlayArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
-      optionize<TotalAccordionBoxOptions, EmptySelfOptions>()( {
-        // @ts-expect-error TODO CM: not sure about this one, can you help? https://github.com/phetsims/chipper/issues/1360
+      optionize<TotalAccordionBoxOptions, EmptySelfOptions, NumberSuiteCommonAccordionBoxOptions>()( {
         expandedProperty: this.rightTotalAccordionBoxExpandedProperty,
         fill: NumberSuiteCommonColors.lightOrangeBackgroundColorProperty
       }, totalAccordionBoxOptions ) );
