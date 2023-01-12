@@ -70,28 +70,28 @@ class ComparisonTextNode extends Node {
       isEqualToString = secondLocaleStrings[ `${numberComparePrefix}isEqualTo` ];
     }
 
-    const leftNumberString = NumberSuiteCommonConstants.numberToString( secondLocaleStrings,
+    const leftNumberWord = NumberSuiteCommonConstants.numberToWord( secondLocaleStrings,
       leftCurrentNumber, isPrimaryLocale );
-    const rightNumberString = NumberSuiteCommonConstants.numberToString( secondLocaleStrings,
+    const rightNumberWord = NumberSuiteCommonConstants.numberToWord( secondLocaleStrings,
       rightCurrentNumber, isPrimaryLocale );
     let comparisonString;
 
     if ( leftCurrentNumber < rightCurrentNumber ) {
       comparisonString = StringUtils.fillIn( isLessThanString, {
-        smallerNumber: leftNumberString,
-        greaterNumber: rightNumberString
+        smallerNumber: leftNumberWord,
+        greaterNumber: rightNumberWord
       } );
     }
     else if ( leftCurrentNumber > rightCurrentNumber ) {
       comparisonString = StringUtils.fillIn( isMoreThanString, {
-        greaterNumber: leftNumberString,
-        smallerNumber: rightNumberString
+        greaterNumber: leftNumberWord,
+        smallerNumber: rightNumberWord
       } );
     }
     else {
       comparisonString = StringUtils.fillIn( isEqualToString, {
-        equalNumberLeft: leftNumberString,
-        equalNumberRight: rightNumberString
+        equalNumberLeft: leftNumberWord,
+        equalNumberRight: rightNumberWord
       } );
     }
 
