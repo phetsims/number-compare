@@ -26,7 +26,7 @@ import ComparisonTextNode from './ComparisonTextNode.js';
 import CountingAccordionBox, { CountingAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/CountingAccordionBox.js';
 import OrganizeButton from '../../../../number-suite-common/js/common/view/OrganizeButton.js';
 import Multilink from '../../../../axon/js/Multilink.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
@@ -74,7 +74,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the left TotalAccordionBox
     const leftTotalAccordionBox = new TotalAccordionBox( model.leftPlayArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
-      optionize<TotalAccordionBoxOptions, EmptySelfOptions, NumberSuiteCommonAccordionBoxOptions>()( {
+      combineOptions<TotalAccordionBoxOptions>( {
         expandedProperty: this.leftTotalAccordionBoxExpandedProperty,
         fill: NumberCompareColors.mediumPurpleBackgroundColorProperty
       }, totalAccordionBoxOptions ) );
@@ -83,7 +83,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the right TotalAccordionBox
     const rightTotalAccordionBox = new TotalAccordionBox( model.rightPlayArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
-      optionize<TotalAccordionBoxOptions, EmptySelfOptions, NumberSuiteCommonAccordionBoxOptions>()( {
+      combineOptions<TotalAccordionBoxOptions>( {
         expandedProperty: this.rightTotalAccordionBoxExpandedProperty,
         fill: NumberSuiteCommonColors.lightOrangeBackgroundColorProperty
       }, totalAccordionBoxOptions ) );
