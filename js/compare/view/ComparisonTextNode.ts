@@ -11,6 +11,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompare from '../../numberCompare.js';
@@ -32,7 +33,7 @@ class ComparisonTextNode extends Node {
     super();
 
     this.comparisonStringProperty = new DerivedProperty(
-      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, phet.joist.localeProperty,
+      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, localeProperty,
         numberComparePreferences.secondLocaleStringsProperty ],
       ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale,
         secondLocaleStrings ) =>
