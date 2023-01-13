@@ -63,7 +63,7 @@ class ComparisonTextNode extends Node {
     let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
     let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
 
-    // TODO: factor these out somewhere?
+    // TODO: factor these out somewhere? https://github.com/phetsims/number-suite-common/issues/23
     const numberComparePrefix = 'NUMBER_COMPARE/';
     if ( !isPrimaryLocale ) {
       isLessThanString = secondLocaleStrings[ `${numberComparePrefix}isLessThan` ];
