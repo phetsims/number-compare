@@ -15,8 +15,8 @@ import NumberCompareStrings from '../../NumberCompareStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
+import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 
 class ComparisonTextNode extends Node {
 
@@ -56,7 +56,7 @@ class ComparisonTextNode extends Node {
    * Builds the string based on the current numbers. Example format: "Three is less than seven"
    */
   private static getComparisonString( leftCurrentNumber: number, rightCurrentNumber: number,
-                                      isPrimaryLocale: boolean, secondLocaleStrings: IntentionalAny ): string {
+                                      isPrimaryLocale: boolean, secondLocaleStrings: SecondLocaleStrings ): string {
 
     let isLessThanString = NumberCompareStrings.isLessThanStringProperty.value;
     let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
