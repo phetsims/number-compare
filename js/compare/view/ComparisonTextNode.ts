@@ -11,12 +11,13 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
+import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 
 class ComparisonTextNode extends Node {
 
@@ -32,9 +33,10 @@ class ComparisonTextNode extends Node {
     super();
 
     this.comparisonStringProperty = new DerivedProperty(
-      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, phet.joist.localeProperty,
+      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, localeProperty,
         numberComparePreferences.secondLocaleStringsProperty ],
-      ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) =>
+      ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale,
+        secondLocaleStrings ) =>
         ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings ) );
 
     // create and add the comparison text
@@ -56,13 +58,13 @@ class ComparisonTextNode extends Node {
    * Builds the string based on the current numbers. Example format: "Three is less than seven"
    */
   private static getComparisonString( leftCurrentNumber: number, rightCurrentNumber: number,
-                                      isPrimaryLocale: boolean, secondLocaleStrings: IntentionalAny ): string {
+                                      isPrimaryLocale: boolean, secondLocaleStrings: SecondLocaleStrings ): string {
 
     let isLessThanString = NumberCompareStrings.isLessThanStringProperty.value;
     let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
     let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
 
-    // TODO: factor these out somewhere?
+    // TODO: factor these out somewhere? https://github.com/phetsims/number-suite-common/issues/23
     const numberComparePrefix = 'NUMBER_COMPARE/';
     if ( !isPrimaryLocale ) {
       isLessThanString = secondLocaleStrings[ `${numberComparePrefix}isLessThan` ];

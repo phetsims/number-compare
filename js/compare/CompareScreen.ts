@@ -13,7 +13,7 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import compareScreenIcon_png from '../../images/compareScreenIcon_png.js';
 import CompareModel from './model/CompareModel.js';
 import CompareScreenView from './view/CompareScreenView.js';
-import NumberPlayQueryParameters from '../../../number-play/js/common/NumberPlayQueryParameters.js';
+import NumberPlayQueryParameters from '../../../number-play/js/common/NumberPlayQueryParameters.js'; // TODO: this shouldn't import from Number Play https://github.com/phetsims/number-suite-common/issues/1
 import NumberCompareStrings from '../NumberCompareStrings.js';
 import numberCompare from '../numberCompare.js';
 import NumberCompareColors from '../common/NumberCompareColors.js';
