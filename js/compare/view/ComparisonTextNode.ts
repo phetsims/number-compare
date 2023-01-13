@@ -34,7 +34,8 @@ class ComparisonTextNode extends Node {
     this.comparisonStringProperty = new DerivedProperty(
       [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, phet.joist.localeProperty,
         numberComparePreferences.secondLocaleStringsProperty ],
-      ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) =>
+      ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale,
+        secondLocaleStrings ) =>
         ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings ) );
 
     // create and add the comparison text
