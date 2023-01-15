@@ -21,7 +21,7 @@ class BlockValuesNode extends Node {
   public constructor( leftCurrentNumberProperty: TReadOnlyProperty<number>, rightCurrentNumberProperty: TReadOnlyProperty<number> ) {
     super();
 
-    //TODO https://github.com/phetsims/number-suite-common/issues/28 Fix drawing so initial state can be setup and updated here
+    //TODO https://github.com/phetsims/number-suite-common/issues/29 Fix drawing so initial state can be setup and updated here
   }
 
   /**
