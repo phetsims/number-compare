@@ -18,6 +18,7 @@ import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
+import NumberCompareConstants from '../../common/NumberCompareConstants.js';
 
 class ComparisonTextNode extends Node {
 
@@ -64,12 +65,10 @@ class ComparisonTextNode extends Node {
     let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
     let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
 
-    // TODO: factor these out somewhere? https://github.com/phetsims/number-suite-common/issues/23
-    const numberComparePrefix = 'NUMBER_COMPARE/';
     if ( !isPrimaryLocale ) {
-      isLessThanString = secondLocaleStrings[ `${numberComparePrefix}isLessThan` ];
-      isMoreThanString = secondLocaleStrings[ `${numberComparePrefix}isMoreThan` ];
-      isEqualToString = secondLocaleStrings[ `${numberComparePrefix}isEqualTo` ];
+      isLessThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan` ];
+      isMoreThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isMoreThan` ];
+      isEqualToString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isEqualTo` ];
     }
 
     const leftNumberWord = NumberSuiteCommonConstants.numberToWord( secondLocaleStrings,
