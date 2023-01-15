@@ -18,7 +18,8 @@ import TModel from '../../../../joist/js/TModel.js';
 import Property from '../../../../axon/js/Property.js';
 
 class CompareModel implements TModel {
-  public readonly sumRange: Range; // TODO: Factor out base class with NumberPlayModel.js
+
+  public readonly sumRange: Range;
   public readonly countingTypeProperty: EnumerationProperty<CompareCountingType>;
   public readonly comparisonSignsAndTextVisibleProperty: Property<boolean>;
   public readonly leftPlayArea: CountingPlayArea;
