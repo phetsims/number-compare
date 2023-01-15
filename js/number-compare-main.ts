@@ -27,7 +27,7 @@ const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].t
 
 const simOptions: SimOptions = {
   credits: {
-    //TODO fill in credits, all of these fields are optional, see joist.CreditsNode
+    //TODO https://github.com/phetsims/number-compare/issues/13 finalize credits
     leadDesign: 'Amanda McGarry',
     softwareDevelopment: 'Chris Klusendorf, Luisa Vargas',
     team: 'Sylvia Celedón-Pattichis, Ariel Paul, Kathy Perkins, Ian Whitacre',
