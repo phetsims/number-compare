@@ -22,9 +22,8 @@ import NumberCompareConstants from '../../common/NumberCompareConstants.js';
 
 class ComparisonTextNode extends Node {
 
-  // (read-only) - update the comparison string when either current number changes.
-  // this string value is stored in a Property (instead of just setting the text directly) so it can be read
-  // elsewhere in the screen view.
+  // updates the comparison string when either current number changes. this string value is stored in a Property
+  // (instead of just setting the text directly) so it can be read elsewhere in the screen view.
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
 
   public constructor( leftCurrentNumberProperty: TReadOnlyProperty<number>,
