@@ -11,6 +11,7 @@ import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 import NumberSuiteCommonPreferencesNode from '../../../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
+import CompareScreen from '../../compare/CompareScreen.js';
 
 export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode<NumberSuiteCommonPreferences> {
 
@@ -18,15 +19,8 @@ export default class NumberComparePreferencesNode extends NumberSuiteCommonPrefe
 
     super( numberComparePreferences, [] );
 
-    // disable any controls that are not applicable to the current selection of screens
-    if ( QueryStringMachine.containsKey( 'screens' ) ) {
-      const screens = phet.chipper.queryParameters.screens;
-      const isSecondLocaleScreen = screens.includes( 1 );
-      const isLabScreen = screens.includes( 2 );
-
-      this.showSecondLocaleControl.enabled = isSecondLocaleScreen;
-      this.showLabOnesControl.enabled = isLabScreen;
-    }
+    // Disable any controls that are not applicable to the current selection of screens.
+    this.showSecondLocaleControl.enabled = NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen );
   }
 
   public override dispose(): void {
