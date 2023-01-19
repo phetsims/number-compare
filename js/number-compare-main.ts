@@ -23,7 +23,7 @@ import ReadAloudPreferenceControl from '../../number-suite-common/js/common/view
 import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 
-const numberPlayTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
+const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
 const simOptions: SimOptions = {
   credits: {
@@ -54,7 +54,7 @@ const simOptions: SimOptions = {
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
 
-  const sim = new Sim( numberPlayTitleStringProperty, [
+  const sim = new Sim( numberCompareTitleStringProperty, [
     new CompareScreen( Tandem.ROOT.createTandem( 'compareScreen' ) ),
     new LabScreen( [ '<', '>', '=', '+', '-' ], numberComparePreferences, Tandem.ROOT.createTandem( 'numberCompareLabScreen' ) )
   ], simOptions );
