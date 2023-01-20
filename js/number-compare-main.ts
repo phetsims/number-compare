@@ -22,12 +22,19 @@ import numberComparePreferences from './common/model/numberComparePreferences.js
 import ReadAloudPreferenceControl from '../../number-suite-common/js/common/view/ReadAloudPreferenceControl.js';
 import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
-import NumberSuiteCommonConstants from '../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
 const simOptions: SimOptions = {
-  credits: NumberSuiteCommonConstants.CREDITS,
+  credits: {
+    //TODO https://github.com/phetsims/number-compare/issues/13 finalize credits
+    leadDesign: 'Amanda McGarry',
+    softwareDevelopment: 'Chris Klusendorf, Luisa Vargas',
+    team: 'Sylvia Celedón-Pattichis, Ariel Paul, Kathy Perkins, Ian Whitacre',
+    qualityAssurance: 'Clifford Hardin, Emily Miller, Nancy Salpepi, Kathryn Woessner',
+    graphicArts: 'Mariah Hermsmeyer',
+    thanks: 'Andrea Barraugh (Math Transformations), Kristin Donley, Bertha Orona'
+  },
   preferencesModel: new PreferencesModel( {
     simulationOptions: {
       customPreferences: [ {
