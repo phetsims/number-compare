@@ -18,7 +18,7 @@ type StringsType = {
   'isLessThanStringProperty': LinkableProperty<string>;
   'isGreaterThanStringProperty': LinkableProperty<string>;
   'isEqualToStringProperty': LinkableProperty<string>;
-  'hearNumberSentencesStringProperty': LinkableProperty<string>;
+  'hearNumberSentenceStringProperty': LinkableProperty<string>;
 };
 
 const NumberCompareStrings = getStringModule( 'NUMBER_COMPARE' ) as StringsType;
