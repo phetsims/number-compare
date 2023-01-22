@@ -38,7 +38,7 @@ const simOptions: SimOptions = {
   preferencesModel: new PreferencesModel( {
     simulationOptions: {
       customPreferences: [ {
-        createContent: () => new NumberComparePreferencesNode()
+        createContent: () => new NumberComparePreferencesNode( numberComparePreferences )
       } ]
     },
     audioOptions: {

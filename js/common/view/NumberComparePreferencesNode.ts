@@ -8,19 +8,18 @@
  */
 
 import numberCompare from '../../numberCompare.js';
-import numberComparePreferences from '../model/numberComparePreferences.js';
 import NumberSuiteCommonPreferencesNode from '../../../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 import CompareScreen from '../../compare/CompareScreen.js';
+import { NumberComparePreferences } from '../model/numberComparePreferences.js';
 
 export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode<NumberSuiteCommonPreferences> {
 
-  public constructor() {
+  public constructor( preferences: NumberComparePreferences ) {
 
-    super( numberComparePreferences, [] );
-
-    // Disable any controls that are not applicable to the current selection of screens.
-    this.showSecondLocaleControl.enabled = NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen );
+    super( preferences, [], {
+      secondLanguageControlEnabled: NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen )
+    } );
   }
 
   public override dispose(): void {

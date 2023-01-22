@@ -10,7 +10,10 @@
 import numberCompare from '../../numberCompare.js';
 import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 
-const numberComparePreferences = new NumberSuiteCommonPreferences();
+// Currently includes no additional preferences, but provided for type checking.
+export class NumberComparePreferences extends NumberSuiteCommonPreferences {}
+
+const numberComparePreferences = new NumberComparePreferences();
 
 numberCompare.register( 'numberComparePreferences', numberComparePreferences );
 export default numberComparePreferences;
