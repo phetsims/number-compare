@@ -16,5 +16,8 @@
   },
   "hearNumberSentence": {
     "value": "Hear Number Sentence"
+  },
+  "hearNumberSentenceDescription": {
+    "value": "Hear the updated number sentence as you interact."
   }
 }

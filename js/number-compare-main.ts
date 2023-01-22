@@ -43,8 +43,9 @@ const simOptions: SimOptions = {
     },
     audioOptions: {
       customPreferences: [ {
-        createContent: () => new ReadAloudPreferenceControl( numberComparePreferences, numberCompareSpeechSynthesisAnnouncer,
-          [ 1 ], NumberCompareStrings.hearNumberSentenceStringProperty )
+        createContent: () => new ReadAloudPreferenceControl( numberComparePreferences,
+          numberCompareSpeechSynthesisAnnouncer, [ 1 ], NumberCompareStrings.hearNumberSentenceStringProperty,
+          NumberCompareStrings.hearNumberSentenceDescriptionStringProperty )
       } ]
     }
   } )
