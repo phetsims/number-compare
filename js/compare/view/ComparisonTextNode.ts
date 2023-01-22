@@ -61,12 +61,12 @@ class ComparisonTextNode extends Node {
                                       isPrimaryLocale: boolean, secondLocaleStrings: SecondLocaleStrings ): string {
 
     let isLessThanString = NumberCompareStrings.isLessThanStringProperty.value;
-    let isMoreThanString = NumberCompareStrings.isMoreThanStringProperty.value;
+    let isGreaterThanString = NumberCompareStrings.isGreaterThanStringProperty.value;
     let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
 
     if ( !isPrimaryLocale ) {
       isLessThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan` ];
-      isMoreThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isMoreThan` ];
+      isGreaterThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isGreaterThan` ];
       isEqualToString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isEqualTo` ];
     }
 
@@ -83,7 +83,7 @@ class ComparisonTextNode extends Node {
       } );
     }
     else if ( leftCurrentNumber > rightCurrentNumber ) {
-      comparisonString = StringUtils.fillIn( isMoreThanString, {
+      comparisonString = StringUtils.fillIn( isGreaterThanString, {
         greaterNumber: leftNumberWord,
         smallerNumber: rightNumberWord
       } );
