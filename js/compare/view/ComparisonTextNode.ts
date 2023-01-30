@@ -20,6 +20,11 @@ import NumberSuiteCommonConstants from '../../../../number-suite-common/js/commo
 import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 import NumberCompareConstants from '../../common/NumberCompareConstants.js';
 
+// constants
+const IS_LESS_THAN_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan`;
+const IS_GREATER_THAN_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isGreaterThan`;
+const IS_EQUAL_TO_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isEqualTo`;
+
 class ComparisonTextNode extends Node {
 
   // updates the comparison string when either current number changes. this string value is stored in a Property
@@ -60,15 +65,12 @@ class ComparisonTextNode extends Node {
   private static getComparisonString( leftCurrentNumber: number, rightCurrentNumber: number,
                                       isPrimaryLocale: boolean, secondLocaleStrings: SecondLocaleStrings ): string {
 
-    let isLessThanString = NumberCompareStrings.isLessThanStringProperty.value;
-    let isGreaterThanString = NumberCompareStrings.isGreaterThanStringProperty.value;
-    let isEqualToString = NumberCompareStrings.isEqualToStringProperty.value;
-
-    if ( !isPrimaryLocale ) {
-      isLessThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan` ];
-      isGreaterThanString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isGreaterThan` ];
-      isEqualToString = secondLocaleStrings[ `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isEqualTo` ];
-    }
+    const isLessThanString = NumberSuiteCommonConstants.getString( NumberCompareStrings.isLessThanStringProperty.value,
+      secondLocaleStrings[ IS_LESS_THAN_STRING_KEY ], IS_LESS_THAN_STRING_KEY, isPrimaryLocale );
+    const isGreaterThanString = NumberSuiteCommonConstants.getString( NumberCompareStrings.isGreaterThanStringProperty.value,
+      secondLocaleStrings[ IS_GREATER_THAN_STRING_KEY ], IS_GREATER_THAN_STRING_KEY, isPrimaryLocale );
+    const isEqualToString = NumberSuiteCommonConstants.getString( NumberCompareStrings.isEqualToStringProperty.value,
+      secondLocaleStrings[ IS_EQUAL_TO_STRING_KEY ], IS_EQUAL_TO_STRING_KEY, isPrimaryLocale );
 
     const leftNumberWord = NumberSuiteCommonConstants.numberToWord( secondLocaleStrings,
       leftCurrentNumber, isPrimaryLocale );
