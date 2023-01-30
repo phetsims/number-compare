@@ -13,7 +13,9 @@ import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/com
 // Currently includes no additional preferences, but provided for type checking.
 export class NumberComparePreferences extends NumberSuiteCommonPreferences {}
 
-const numberComparePreferences = new NumberComparePreferences();
+const numberComparePreferences = new NumberComparePreferences(
+  'https://phet.colorado.edu/sims/html/number-compare/latest/number-compare_all.html'
+);
 
 numberCompare.register( 'numberComparePreferences', numberComparePreferences );
 export default numberComparePreferences;
