@@ -22,6 +22,7 @@ import numberComparePreferences from './common/model/numberComparePreferences.js
 import ReadAloudControl from '../../number-suite-common/js/common/view/ReadAloudControl.js';
 import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
+import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -44,8 +45,9 @@ const simOptions: SimOptions = {
     audioOptions: {
       customPreferences: [ {
         createContent: () => new ReadAloudControl( numberComparePreferences,
-          numberCompareSpeechSynthesisAnnouncer, [ 1 ], NumberCompareStrings.hearNumberSentenceStringProperty,
-          NumberCompareStrings.hearNumberSentenceDescriptionStringProperty )
+          numberCompareSpeechSynthesisAnnouncer, NumberCompareStrings.hearNumberSentenceStringProperty,
+          NumberCompareStrings.hearNumberSentenceDescriptionStringProperty,
+          NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
       } ]
     }
   } )
