@@ -15,7 +15,7 @@ import { Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import LocaleSwitch from '../../../../number-suite-common/js/common/view/LocaleSwitch.js';
-import SpeechSynthesisButton from '../../../../number-suite-common/js/common/view/SpeechSynthesisButton.js';
+import SpeechSynthesisControl from '../../../../number-suite-common/js/common/view/SpeechSynthesisControl.js';
 import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/TotalAccordionBox.js';
 import CompareCountingType from '../model/CompareCountingType.js';
 import CompareModel from '../model/CompareModel.js';
@@ -137,21 +137,22 @@ class CompareScreenView extends ScreenView {
 
     // create and add the SpeechSynthesisButton if the announcer is initialized
     if ( numberCompareSpeechSynthesisAnnouncer.initialized ) {
-      const speechSynthesisButton = new SpeechSynthesisButton( model.isPrimaryLocaleProperty, numberComparePreferences,
+      const speechSynthesisControl = new SpeechSynthesisControl( model.isPrimaryLocaleProperty, numberComparePreferences,
         numberCompareSpeechSynthesisAnnouncer, numberCompareUtteranceQueue, {
-          comparisonSignsAndTextVisibleProperty: model.comparisonSignsAndTextVisibleProperty,
-          stringProperty: comparisonTextNode.comparisonStringProperty,
-          numberProperty: model.leftPlayArea.sumProperty,
-          secondNumberProperty: model.rightPlayArea.sumProperty
-        }
-      );
-      speechSynthesisButton.left = NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X;
-      speechSynthesisButton.top = rightTotalAccordionBox.top;
-      this.addChild( speechSynthesisButton );
+          speechSynthesisButtonOptions: {
+            comparisonSignsAndTextVisibleProperty: model.comparisonSignsAndTextVisibleProperty,
+            stringProperty: comparisonTextNode.comparisonStringProperty,
+            numberProperty: model.leftPlayArea.sumProperty,
+            secondNumberProperty: model.rightPlayArea.sumProperty
+          },
+          left: NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X,
+          top: rightTotalAccordionBox.top
+        } );
+      this.addChild( speechSynthesisControl );
 
       // position the localeSwitch relative to the speechSynthesisButton
-      localeSwitchXRange = new Range( speechSynthesisButton.right, leftTotalAccordionBox.left );
-      localeSwitchCenterY = speechSynthesisButton.centerY;
+      localeSwitchXRange = new Range( speechSynthesisControl.right, leftTotalAccordionBox.left );
+      localeSwitchCenterY = speechSynthesisControl.centerY;
     }
     else {
 
