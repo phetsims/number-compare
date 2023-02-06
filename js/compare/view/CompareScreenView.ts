@@ -14,7 +14,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import LocaleSwitch from '../../../../number-suite-common/js/common/view/LocaleSwitch.js';
 import SpeechSynthesisControl from '../../../../number-suite-common/js/common/view/SpeechSynthesisControl.js';
 import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/TotalAccordionBox.js';
 import CompareCountingType from '../model/CompareCountingType.js';
@@ -36,6 +35,7 @@ import NumberCompareColors from '../../common/NumberCompareColors.js';
 import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/NumberSuiteCommonColors.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import Property from '../../../../axon/js/Property.js';
+import LocaleRadioButtonGroup from './LocaleRadioButtonGroup.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -131,10 +131,6 @@ class CompareScreenView extends ScreenView {
     comparisonTextNode.centerY = new Range( leftTotalAccordionBox.bottom, leftCountingAccordionBox.top ).getCenter();
     this.addChild( comparisonTextNode );
 
-    // positioning variables for the LocaleSwitch that depend on whether the SpeechSynthesisButton is created below
-    let localeSwitchXRange;
-    let localeSwitchCenterY;
-
     // create and add the SpeechSynthesisButton if the announcer is initialized
     if ( numberCompareSpeechSynthesisAnnouncer.initialized ) {
       const speechSynthesisControl = new SpeechSynthesisControl( model.isPrimaryLocaleProperty, numberComparePreferences,
@@ -146,29 +142,17 @@ class CompareScreenView extends ScreenView {
             secondNumberProperty: model.rightPlayArea.sumProperty
           },
           left: NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X,
-          top: rightTotalAccordionBox.top
+          top: leftTotalAccordionBox.top
         } );
       this.addChild( speechSynthesisControl );
-
-      // position the localeSwitch relative to the speechSynthesisButton
-      localeSwitchXRange = new Range( speechSynthesisControl.right, leftTotalAccordionBox.left );
-      localeSwitchCenterY = speechSynthesisControl.centerY;
-    }
-    else {
-
-      // position the localeSwitch relative to the rightTotalAccordionBox if the speechSynthesisButton doesn't exist
-      localeSwitchXRange = new Range( this.layoutBounds.minX, leftTotalAccordionBox.left );
-      localeSwitchCenterY = leftTotalAccordionBox.top + 20;
     }
 
-    // create and add the LocaleSwitch
-    const localeSwitchXMargin = 15; // empirically determined
-    const localeSwitchMaxWidth = localeSwitchXRange.getLength() - localeSwitchXMargin * 2;
-    const localeSwitch = new LocaleSwitch( model.isPrimaryLocaleProperty, numberComparePreferences.showSecondLocaleProperty,
-      numberComparePreferences.secondLocaleProperty, localeSwitchMaxWidth );
-    localeSwitch.centerX = localeSwitchXRange.getCenter();
-    localeSwitch.centerY = localeSwitchCenterY;
-    this.addChild( localeSwitch );
+    // LocaleRadioButtonGroup
+    const localeRadioButtonGroup = new LocaleRadioButtonGroup( model.isPrimaryLocaleProperty, numberComparePreferences.showSecondLocaleProperty,
+      numberComparePreferences.secondLocaleProperty );
+    localeRadioButtonGroup.left = leftCountingAccordionBox.left;
+    localeRadioButtonGroup.top = leftTotalAccordionBox.top + 2;
+    this.addChild( localeRadioButtonGroup );
 
     // create and add the comparison signs node
     const comparisonSignsNode = new Text( equalString, { font: new PhetFont( 90 ) } );
