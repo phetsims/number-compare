@@ -56,6 +56,13 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
         radius: RADIO_BUTTON_RADIUS
       }
     } );
+
+    showSecondLocaleProperty.link( showSecondLocale => {
+      this.visible = showSecondLocale;
+      if ( !showSecondLocale ) {
+        isPrimaryLocaleProperty.value = true;
+      }
+    } );
   }
 }
 
