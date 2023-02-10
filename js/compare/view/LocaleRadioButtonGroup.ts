@@ -8,9 +8,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import localeProperty, { Locale } from '../../../../joist/js/i18n/localeProperty.js';
+import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
 import { Text, TextOptions } from '../../../../scenery/js/imports.js';
 import numberSuiteCommon from '../../../../number-suite-common/js/numberSuiteCommon.js';
 import { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
@@ -18,6 +16,7 @@ import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioBu
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import localeInfoModule from '../../../../chipper/js/data/localeInfoModule.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 
 const TEXT_OPTIONS: TextOptions = {
   font: new PhetFont( 14 ),
@@ -29,14 +28,12 @@ const RADIO_BUTTON_RADIUS = new Text( 'X', TEXT_OPTIONS ).height / 2;
 
 export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup<boolean> {
 
-  public constructor( isPrimaryLocaleProperty: Property<boolean>,
-                      showSecondLocaleProperty: TReadOnlyProperty<boolean>,
-                      secondLocaleProperty: TReadOnlyProperty<Locale> ) {
+  public constructor() {
 
     const firstLanguageStringProperty = new DerivedProperty( [ localeProperty ],
       locale => localeInfoModule[ locale ].localizedName );
 
-    const secondLanguageStringProperty = new DerivedProperty( [ secondLocaleProperty ],
+    const secondLanguageStringProperty = new DerivedProperty( [ numberComparePreferences.secondLocaleProperty ],
       locale => localeInfoModule[ locale ].localizedName );
 
     const items: AquaRadioButtonGroupItem<boolean>[] = [
@@ -50,17 +47,17 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
       }
     ];
 
-    super( isPrimaryLocaleProperty, items, {
+    super( numberComparePreferences.isPrimaryLocaleProperty, items, {
       spacing: 10,
       radioButtonOptions: {
         radius: RADIO_BUTTON_RADIUS
       }
     } );
 
-    showSecondLocaleProperty.link( showSecondLocale => {
+    numberComparePreferences.showSecondLocaleProperty.link( showSecondLocale => {
       this.visible = showSecondLocale;
       if ( !showSecondLocale ) {
-        isPrimaryLocaleProperty.value = true;
+        numberComparePreferences.isPrimaryLocaleProperty.value = true;
       }
     } );
   }

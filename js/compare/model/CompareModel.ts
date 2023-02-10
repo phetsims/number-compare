@@ -16,6 +16,7 @@ import numberCompare from '../../numberCompare.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import TModel from '../../../../joist/js/TModel.js';
 import Property from '../../../../axon/js/Property.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 
 class CompareModel implements TModel {
 
@@ -24,9 +25,6 @@ class CompareModel implements TModel {
   public readonly comparisonSignsAndTextVisibleProperty: Property<boolean>;
   public readonly leftPlayArea: CountingPlayArea;
   public readonly rightPlayArea: CountingPlayArea;
-
-  // whether the sim is using the locale it was loaded in or a second locale
-  public readonly isPrimaryLocaleProperty: Property<boolean>;
   public readonly leftCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
   public readonly rightCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
 
@@ -40,8 +38,6 @@ class CompareModel implements TModel {
     this.countingTypeProperty = new EnumerationProperty( CompareCountingType.BLOCKS );
     this.comparisonSignsAndTextVisibleProperty = new BooleanProperty( true );
 
-    this.isPrimaryLocaleProperty = new BooleanProperty( true );
-
     // create the left and right play areas
     this.leftPlayArea = new CountingPlayArea( highestCount, new BooleanProperty( true ), 'leftPlayArea' );
     this.rightPlayArea = new CountingPlayArea( highestCount, new BooleanProperty( true ), 'rightPlayArea' );
@@ -51,7 +47,7 @@ class CompareModel implements TModel {
    * Resets the model.
    */
   public reset(): void {
-    this.isPrimaryLocaleProperty.reset();
+    numberComparePreferences.isPrimaryLocaleProperty.reset();
     this.leftPlayArea.reset();
     this.rightPlayArea.reset();
     this.rightCountingObjectTypeProperty.reset();

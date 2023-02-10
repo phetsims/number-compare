@@ -125,7 +125,6 @@ class CompareScreenView extends ScreenView {
     const comparisonTextNode = new ComparisonTextNode(
       model.leftPlayArea.sumProperty,
       model.rightPlayArea.sumProperty,
-      model.isPrimaryLocaleProperty,
       this.layoutBounds
     );
     comparisonTextNode.centerY = new Range( leftTotalAccordionBox.bottom, leftCountingAccordionBox.top ).getCenter();
@@ -133,8 +132,10 @@ class CompareScreenView extends ScreenView {
 
     // create and add the SpeechSynthesisButton if the announcer is initialized
     if ( numberCompareSpeechSynthesisAnnouncer.initialized ) {
-      const speechSynthesisControl = new SpeechSynthesisControl( model.isPrimaryLocaleProperty, numberComparePreferences,
-        numberCompareSpeechSynthesisAnnouncer, numberCompareUtteranceQueue, {
+      const speechSynthesisControl = new SpeechSynthesisControl(
+        numberComparePreferences,
+        numberCompareSpeechSynthesisAnnouncer,
+        numberCompareUtteranceQueue, {
           speechSynthesisButtonOptions: {
             comparisonSignsAndTextVisibleProperty: model.comparisonSignsAndTextVisibleProperty,
             stringProperty: comparisonTextNode.comparisonStringProperty,
@@ -148,8 +149,7 @@ class CompareScreenView extends ScreenView {
     }
 
     // LocaleRadioButtonGroup
-    const localeRadioButtonGroup = new LocaleRadioButtonGroup( model.isPrimaryLocaleProperty, numberComparePreferences.showSecondLocaleProperty,
-      numberComparePreferences.secondLocaleProperty );
+    const localeRadioButtonGroup = new LocaleRadioButtonGroup();
     localeRadioButtonGroup.left = leftCountingAccordionBox.left;
     localeRadioButtonGroup.top = leftTotalAccordionBox.top + 2;
     this.addChild( localeRadioButtonGroup );

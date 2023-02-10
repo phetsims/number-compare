@@ -33,13 +33,12 @@ class ComparisonTextNode extends Node {
 
   public constructor( leftCurrentNumberProperty: TReadOnlyProperty<number>,
                       rightCurrentNumberProperty: TReadOnlyProperty<number>,
-                      isPrimaryLocaleProperty: TReadOnlyProperty<boolean>,
                       layoutBounds: Bounds2 ) {
     super();
 
     this.comparisonStringProperty = new DerivedProperty(
-      [ leftCurrentNumberProperty, rightCurrentNumberProperty, isPrimaryLocaleProperty, localeProperty,
-        numberComparePreferences.secondLocaleStringsProperty ],
+      [ leftCurrentNumberProperty, rightCurrentNumberProperty, numberComparePreferences.isPrimaryLocaleProperty,
+        localeProperty, numberComparePreferences.secondLocaleStringsProperty ],
       ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale,
         secondLocaleStrings ) =>
         ComparisonTextNode.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings ) );
