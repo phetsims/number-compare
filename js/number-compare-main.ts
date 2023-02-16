@@ -10,7 +10,7 @@ import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
-import { Display } from '../../scenery/js/imports.js';
+import { Display, Text } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
 import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
@@ -24,6 +24,7 @@ import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
+import PhetFont from '../../scenery-phet/js/PhetFont.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -49,6 +50,12 @@ const simOptions: SimOptions = {
           numberCompareSpeechSynthesisAnnouncer, NumberCompareStrings.hearNumberSentenceStringProperty,
           NumberCompareStrings.hearNumberSentenceDescriptionStringProperty,
           NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
+      } ]
+    },
+    localizationOptions: {
+      includeLocalePanel: false, // We will be substituting our own control for selecting locale.
+      customPreferences: [ {
+        createContent: () => new Text( 'Under Construction', { font: new PhetFont( 16 ) } )
       } ]
     }
   } )
