@@ -11,8 +11,10 @@ import NumberSuiteCommonSpeechSynthesisAnnouncer from '../../../../number-suite-
 import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 
-const numberCompareSpeechSynthesisAnnouncer =
-  new NumberSuiteCommonSpeechSynthesisAnnouncer( numberComparePreferences.secondLocaleProperty );
+const numberCompareSpeechSynthesisAnnouncer = new NumberSuiteCommonSpeechSynthesisAnnouncer(
+  numberComparePreferences.isPrimaryLocaleProperty,
+  numberComparePreferences.secondLocaleProperty
+);
 
 numberCompare.register( 'numberCompareSpeechSynthesisAnnouncer', numberCompareSpeechSynthesisAnnouncer );
 export default numberCompareSpeechSynthesisAnnouncer;

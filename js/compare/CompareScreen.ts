@@ -17,6 +17,7 @@ import NumberCompareStrings from '../NumberCompareStrings.js';
 import numberCompare from '../numberCompare.js';
 import NumberCompareColors from '../common/NumberCompareColors.js';
 import NumberCompareQueryParameters from '../common/NumberCompareQueryParameters.js';
+import numberCompareUtteranceQueue from '../common/view/numberCompareUtteranceQueue.js';
 
 class CompareScreen extends Screen<CompareModel, CompareScreenView> {
 
@@ -35,6 +36,7 @@ class CompareScreen extends Screen<CompareModel, CompareScreenView> {
     super(
       () => new CompareModel(
         NumberCompareQueryParameters.compareMax,
+        numberCompareUtteranceQueue.compareScreenSpeechDataProperty,
         tandem.createTandem( 'model' ) ),
       model => new CompareScreenView( model, tandem.createTandem( 'view' ) ),
       options

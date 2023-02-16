@@ -23,6 +23,7 @@ import ReadAloudControl from '../../number-suite-common/js/common/view/ReadAloud
 import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
+import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -83,4 +84,6 @@ simLauncher.launch( () => {
 
     numberCompareSpeechSynthesisAnnouncer.enabledProperty.value = true;
   }
+
+  numberCompareUtteranceQueue.initialize( sim.selectedScreenProperty );
 } );

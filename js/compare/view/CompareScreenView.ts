@@ -28,7 +28,6 @@ import Multilink from '../../../../axon/js/Multilink.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import numberCompare from '../../numberCompare.js';
-import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 import numberCompareSpeechSynthesisAnnouncer from '../../common/view/numberCompareSpeechSynthesisAnnouncer.js';
 import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
 import NumberCompareColors from '../../common/NumberCompareColors.js';
@@ -123,8 +122,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the ComparisonTextNode
     const comparisonTextNode = new ComparisonTextNode(
-      model.leftPlayArea.sumProperty,
-      model.rightPlayArea.sumProperty,
+      model.comparisonStringProperty,
       this.layoutBounds
     );
     comparisonTextNode.centerY = new Range( leftTotalAccordionBox.bottom, leftCountingAccordionBox.top ).getCenter();
@@ -133,14 +131,10 @@ class CompareScreenView extends ScreenView {
     // create and add the SpeechSynthesisButton if the announcer is initialized
     if ( numberCompareSpeechSynthesisAnnouncer.initialized ) {
       const speechSynthesisControl = new SpeechSynthesisControl(
-        numberComparePreferences,
         numberCompareSpeechSynthesisAnnouncer,
         numberCompareUtteranceQueue, {
           speechSynthesisButtonOptions: {
-            comparisonSignsAndTextVisibleProperty: model.comparisonSignsAndTextVisibleProperty,
-            stringProperty: comparisonTextNode.comparisonStringProperty,
-            numberProperty: model.leftPlayArea.sumProperty,
-            secondNumberProperty: model.rightPlayArea.sumProperty
+            comparisonSignsAndTextVisibleProperty: model.comparisonSignsAndTextVisibleProperty
           },
           left: NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X,
           top: leftTotalAccordionBox.top
