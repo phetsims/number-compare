@@ -9,15 +9,15 @@
 
 import numberCompare from '../../numberCompare.js';
 import NumberSuiteCommonPreferencesNode from '../../../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
-import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 import CompareScreen from '../../compare/CompareScreen.js';
-import { NumberComparePreferences } from '../model/numberComparePreferences.js';
+import numberComparePreferences from '../model/numberComparePreferences.js';
+import numberCompareSpeechSynthesisAnnouncer from './numberCompareSpeechSynthesisAnnouncer.js';
 
-export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode<NumberSuiteCommonPreferences> {
+export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode {
 
-  public constructor( preferences: NumberComparePreferences ) {
+  public constructor() {
 
-    super( preferences, [], {
+    super( numberComparePreferences, numberCompareSpeechSynthesisAnnouncer, [], {
       secondLanguageControlEnabled: NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen )
     } );
   }

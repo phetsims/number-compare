@@ -10,7 +10,7 @@ import Sim, { SimOptions } from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import Tandem from '../../tandem/js/Tandem.js';
 import CompareScreen from './compare/CompareScreen.js';
-import { Display, Text } from '../../scenery/js/imports.js';
+import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
 import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
@@ -24,7 +24,8 @@ import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
-import PhetFont from '../../scenery-phet/js/PhetFont.js';
+import LanguageAndVoiceControl from '../../number-suite-common/js/common/view/LanguageAndVoiceControl.js';
+import localeProperty from '../../joist/js/i18n/localeProperty.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -41,21 +42,27 @@ const simOptions: SimOptions = {
   preferencesModel: new PreferencesModel( {
     simulationOptions: {
       customPreferences: [ {
-        createContent: () => new NumberComparePreferencesNode( numberComparePreferences )
+        createContent: () => new NumberComparePreferencesNode()
       } ]
     },
     audioOptions: {
       customPreferences: [ {
-        createContent: () => new ReadAloudControl( numberComparePreferences,
-          numberCompareSpeechSynthesisAnnouncer, NumberCompareStrings.hearNumberSentenceStringProperty,
+        createContent: () => new ReadAloudControl(
+          numberComparePreferences,
+          numberCompareSpeechSynthesisAnnouncer,
+          NumberCompareStrings.hearNumberSentenceStringProperty,
           NumberCompareStrings.hearNumberSentenceDescriptionStringProperty,
           NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
       } ]
     },
     localizationOptions: {
-      includeLocalePanel: false, // We will be substituting our own control for selecting locale.
+      includeLocalePanel: false,
       customPreferences: [ {
-        createContent: () => new Text( 'Under Construction', { font: new PhetFont( 16 ) } )
+        createContent: () => new LanguageAndVoiceControl(
+          localeProperty,
+          numberComparePreferences.primaryVoiceProperty,
+          numberCompareSpeechSynthesisAnnouncer
+        )
       } ]
     }
   } )

@@ -13,7 +13,9 @@ import numberComparePreferences from '../model/numberComparePreferences.js';
 
 const numberCompareSpeechSynthesisAnnouncer = new NumberSuiteCommonSpeechSynthesisAnnouncer(
   numberComparePreferences.isPrimaryLocaleProperty,
-  numberComparePreferences.secondLocaleProperty
+  numberComparePreferences.secondLocaleProperty,
+  numberComparePreferences.primaryVoiceProperty,
+  numberComparePreferences.secondVoiceProperty
 );
 
 numberCompare.register( 'numberCompareSpeechSynthesisAnnouncer', numberCompareSpeechSynthesisAnnouncer );
