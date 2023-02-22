@@ -14,9 +14,9 @@ import numberSuiteCommon from '../../../../number-suite-common/js/numberSuiteCom
 import { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import localeInfoModule from '../../../../chipper/js/data/localeInfoModule.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
 const TEXT_OPTIONS: TextOptions = {
   font: new PhetFont( 14 ),
@@ -30,11 +30,11 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
 
   public constructor() {
 
-    const firstLanguageStringProperty = new DerivedProperty( [ localeProperty ],
-      locale => localeInfoModule[ locale ].localizedName );
+    const firstLanguageStringProperty = new DerivedProperty( [ localeProperty ], StringUtils.localeToLocalizedName );
 
-    const secondLanguageStringProperty = new DerivedProperty( [ numberComparePreferences.secondLocaleProperty ],
-      locale => localeInfoModule[ locale ].localizedName );
+    const secondLanguageStringProperty = new DerivedProperty( [
+      numberComparePreferences.secondLocaleProperty
+    ], StringUtils.localeToLocalizedName );
 
     const items: AquaRadioButtonGroupItem<boolean>[] = [
       {
