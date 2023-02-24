@@ -26,6 +26,7 @@ import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/commo
 import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
 import LanguageAndVoiceControl from '../../number-suite-common/js/common/view/LanguageAndVoiceControl.js';
 import localeProperty from '../../joist/js/i18n/localeProperty.js';
+import preferencesSpeechSynthesisAnnouncer from '../../number-suite-common/js/common/view/preferencesSpeechSynthesisAnnouncer.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 
@@ -80,11 +81,11 @@ simLauncher.launch( () => {
 
   soundManager.setOutputLevelForCategory( 'user-interface', 0 );
 
-  // initialize the SpeechSynthesisAnnouncer that will use speech synthesis to speak numbers
+  // initialize the SpeechSynthesisAnnouncers that will use speech synthesis for general sim use and setting preferences
   if ( SpeechSynthesisAnnouncer.isSpeechSynthesisSupported() ) {
-    numberCompareSpeechSynthesisAnnouncer.initialize( Display.userGestureEmitter, {
+    const announcerOptions = {
 
-      // specify the Properties that control whether or not output is allowed with speech synthesis
+      // specify the Properties that control whether output is allowed with speech synthesis
       speechAllowedProperty: new DerivedProperty( [
         sim.isConstructionCompleteProperty,
         sim.browserTabVisibleProperty,
@@ -94,9 +95,13 @@ simLauncher.launch( () => {
       ], ( simConstructionComplete, simVisible, simActive, simSettingPhetioState, audioEnabled ) => {
         return simConstructionComplete && simVisible && simActive && !simSettingPhetioState && audioEnabled;
       } )
-    } );
+    };
+
+    numberCompareSpeechSynthesisAnnouncer.initialize( Display.userGestureEmitter, announcerOptions );
+    preferencesSpeechSynthesisAnnouncer.initialize( Display.userGestureEmitter, announcerOptions );
 
     numberCompareSpeechSynthesisAnnouncer.enabledProperty.value = true;
+    preferencesSpeechSynthesisAnnouncer.enabledProperty.value = true;
   }
 
   numberCompareUtteranceQueue.initialize( sim.selectedScreenProperty );
