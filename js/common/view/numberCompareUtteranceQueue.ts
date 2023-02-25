@@ -21,6 +21,7 @@ import Screen from '../../../../joist/js/Screen.js';
 
 class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
 
+  // Data from the 'Compare' screen that can be spoken to the user. Should be updated in the screen's model.
   public readonly compareScreenSpeechDataProperty: TProperty<string | null>;
 
   public constructor() {
