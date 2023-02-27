@@ -26,6 +26,7 @@ import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import TProperty from '../../../../axon/js/TProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 // constants
 const IS_LESS_THAN_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan`;
@@ -66,11 +67,12 @@ class CompareModel implements TModel {
     ], ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) =>
       CompareModel.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings ) );
 
-    // Update the speechDataProperty when the comparisonString changes. If the comparison sign and text is not visible,
-    // set the speech to null.
-    this.comparisonStringProperty.link( comparisonString => {
-      speechDataProperty.value = this.comparisonSignsAndTextVisibleProperty.value ? comparisonString : null;
-    } );
+    // Update the speechDataProperty when the comparisonString or comparisonSignsAndTextVisible changes. If the
+    // comparison sign and text is not visible, set the speech to null.
+    Multilink.multilink( [ this.comparisonStringProperty, this.comparisonSignsAndTextVisibleProperty ],
+      ( comparisonString, comparisonSignsAndTextVisible ) => {
+        speechDataProperty.value = comparisonSignsAndTextVisible ? comparisonString : null;
+      } );
   }
 
   /**
