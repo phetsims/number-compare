@@ -28,7 +28,7 @@ class ComparisonTextNode extends Node {
 
     // update the comparison text when the comparison string changes and center our position
     comparisonStringProperty.link( comparisonString => {
-      textNode.text = comparisonString;
+      textNode.string = comparisonString;
       this.centerX = layoutBounds.centerX;
     } );
   }

@@ -213,7 +213,7 @@ class CompareScreenView extends ScreenView {
     // update the comparison signs node's text and the BlockValuesNode when either current number changes
     Multilink.multilink( [ model.leftPlayArea.sumProperty, model.rightPlayArea.sumProperty ],
       ( leftCurrentNumber, rightCurrentNumber ) => {
-        comparisonSignsNode.text = leftCurrentNumber < rightCurrentNumber ? lessThanString :
+        comparisonSignsNode.string = leftCurrentNumber < rightCurrentNumber ? lessThanString :
                                    leftCurrentNumber > rightCurrentNumber ? greaterThanString : equalString;
 
         blockValuesNode.removeAllChildren();
