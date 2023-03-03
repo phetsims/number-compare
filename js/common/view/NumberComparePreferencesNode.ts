@@ -11,13 +11,13 @@ import numberCompare from '../../numberCompare.js';
 import NumberSuiteCommonPreferencesNode from '../../../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 import CompareScreen from '../../compare/CompareScreen.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
-import numberCompareSpeechSynthesisAnnouncer from './numberCompareSpeechSynthesisAnnouncer.js';
+import numberCompareUtteranceQueue from './numberCompareUtteranceQueue.js';
 
 export default class NumberComparePreferencesNode extends NumberSuiteCommonPreferencesNode {
 
   public constructor() {
 
-    super( numberComparePreferences, numberCompareSpeechSynthesisAnnouncer, [], {
+    super( numberComparePreferences, numberCompareUtteranceQueue, [], {
       secondLanguageControlEnabled: NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen )
     } );
   }

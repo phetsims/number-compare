@@ -62,7 +62,7 @@ const simOptions: SimOptions = {
         createContent: () => new LanguageAndVoiceControl(
           localeProperty,
           numberComparePreferences.primaryVoiceProperty,
-          numberCompareSpeechSynthesisAnnouncer
+          numberCompareUtteranceQueue
         )
       } ]
     }
