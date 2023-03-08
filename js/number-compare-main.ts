@@ -54,7 +54,10 @@ const simOptions: SimOptions = {
           NumberCompareStrings.hearNumberSentenceStringProperty,
           NumberCompareStrings.hearNumberSentenceDescriptionStringProperty,
           NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
-      } ]
+      } ],
+
+      // speech synthesis is the only sound used in this sim, no general sim sounds
+      supportsSound: false
     },
     localizationOptions: {
       includeLocalePanel: false,
