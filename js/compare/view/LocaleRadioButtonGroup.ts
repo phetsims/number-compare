@@ -17,6 +17,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
 
 const TEXT_OPTIONS: TextOptions = {
   font: new PhetFont( 14 ),
@@ -52,6 +53,11 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
       radioButtonOptions: {
         radius: RADIO_BUTTON_RADIUS
       }
+    } );
+
+    // Speak speechData if readAloud is turned on.
+    this.onInputEmitter.addListener( () => {
+      numberComparePreferences.readAloudProperty.value && numberCompareUtteranceQueue.speakSpeechData()
     } );
 
     numberComparePreferences.showSecondLocaleProperty.link( showSecondLocale => {
