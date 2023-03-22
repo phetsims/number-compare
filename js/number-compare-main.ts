@@ -81,8 +81,6 @@ simLauncher.launch( () => {
   ], simOptions );
   sim.start();
 
-  soundManager.setOutputLevelForCategory( 'user-interface', 0 );
-
   // initialize the SpeechSynthesisAnnouncers that will use speech synthesis for general sim use and setting preferences
   if ( SpeechSynthesisAnnouncer.isSpeechSynthesisSupported() ) {
     numberCompareSpeechSynthesisAnnouncer.initialize( Display.userGestureEmitter, {
