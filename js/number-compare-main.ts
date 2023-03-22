@@ -14,7 +14,6 @@ import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
 import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
-import soundManager from '../../tambo/js/soundManager.js';
 import NumberCompareStrings from './NumberCompareStrings.js';
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';

@@ -57,7 +57,7 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
 
     // Speak speechData if readAloud is turned on.
     this.onInputEmitter.addListener( () => {
-      numberComparePreferences.readAloudProperty.value && numberCompareUtteranceQueue.speakSpeechData()
+      numberComparePreferences.readAloudProperty.value && numberCompareUtteranceQueue.speakSpeechData();
     } );
 
     numberComparePreferences.showSecondLocaleProperty.link( showSecondLocale => {
