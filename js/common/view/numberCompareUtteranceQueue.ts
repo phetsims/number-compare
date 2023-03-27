@@ -25,7 +25,13 @@ class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
   public readonly compareScreenSpeechDataProperty: TProperty<string | null>;
 
   public constructor() {
-    super( numberCompareSpeechSynthesisAnnouncer, numberComparePreferences.readAloudProperty );
+    super(
+      numberCompareSpeechSynthesisAnnouncer,
+      numberComparePreferences.isPrimaryLocaleProperty,
+      numberComparePreferences.primaryVoiceProperty,
+      numberComparePreferences.secondVoiceProperty,
+      numberComparePreferences.readAloudProperty
+    );
 
     this.compareScreenSpeechDataProperty = new Property<string | null>( null );
   }
