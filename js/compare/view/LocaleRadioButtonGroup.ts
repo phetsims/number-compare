@@ -52,19 +52,13 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
       spacing: 10,
       radioButtonOptions: {
         radius: RADIO_BUTTON_RADIUS
-      }
+      },
+      visibleProperty: new DerivedProperty( [ numberComparePreferences.showSecondLocaleProperty ], showSecondLocale => showSecondLocale )
     } );
 
     // Speak speechData if readAloud is turned on.
     this.onInputEmitter.addListener( () => {
       numberComparePreferences.readAloudProperty.value && numberCompareUtteranceQueue.speakSpeechData();
-    } );
-
-    numberComparePreferences.showSecondLocaleProperty.link( showSecondLocale => {
-      this.visible = showSecondLocale;
-      if ( !showSecondLocale ) {
-        numberComparePreferences.isPrimaryLocaleProperty.value = true;
-      }
     } );
   }
 }
