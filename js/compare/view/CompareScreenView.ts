@@ -202,7 +202,7 @@ class CompareScreenView extends ScreenView {
     leftOrganizeButton.top = leftCountingAccordionBox.top;
     this.addChild( leftOrganizeButton );
 
-    // create and add a button to organize the objectsAccordionBox play objects in a grid
+    // create and add a button to organize the objectsAccordionBox countingObjects in a grid
     const rightOrganizeButton = new OrganizeButton( NumberSuiteCommonColors.lightOrangeBackgroundColorProperty, () => {
       model.rightPlayArea.organizeObjects();
     } );
