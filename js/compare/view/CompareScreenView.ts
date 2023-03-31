@@ -71,7 +71,7 @@ class CompareScreenView extends ScreenView {
     };
 
     // create and add the left TotalAccordionBox
-    const leftTotalAccordionBox = new TotalAccordionBox( model.leftPlayArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
+    const leftTotalAccordionBox = new TotalAccordionBox( model.leftCountingArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
       combineOptions<TotalAccordionBoxOptions>( {
         expandedProperty: this.leftTotalAccordionBoxExpandedProperty,
         fill: NumberCompareColors.mediumPurpleBackgroundColorProperty
@@ -80,7 +80,7 @@ class CompareScreenView extends ScreenView {
     this.addChild( leftTotalAccordionBox );
 
     // create and add the right TotalAccordionBox
-    const rightTotalAccordionBox = new TotalAccordionBox( model.rightPlayArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
+    const rightTotalAccordionBox = new TotalAccordionBox( model.rightCountingArea, UPPER_ACCORDION_BOX_CONTENT_HEIGHT,
       combineOptions<TotalAccordionBoxOptions>( {
         expandedProperty: this.rightTotalAccordionBoxExpandedProperty,
         fill: NumberSuiteCommonColors.lightOrangeBackgroundColorProperty
@@ -90,7 +90,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the left CountingAccordionBox
     const leftCountingAccordionBox = new CountingAccordionBox(
-      model.leftPlayArea,
+      model.leftCountingArea,
       model.leftCountingObjectTypeProperty,
       LOWER_ACCORDION_BOX_CONTENT_WIDTH,
       NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT, {
@@ -104,7 +104,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add the right CountingAccordionBox
     const rightCountingAccordionBox = new CountingAccordionBox(
-      model.rightPlayArea,
+      model.rightCountingArea,
       model.rightCountingObjectTypeProperty,
       LOWER_ACCORDION_BOX_CONTENT_WIDTH,
       NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT, {
@@ -167,14 +167,14 @@ class CompareScreenView extends ScreenView {
     this.addChild( showComparisonCheckbox );
 
     // create and add the BlockValuesNode
-    const blockValuesNode = new BlockValuesNode( model.leftPlayArea.sumProperty, model.rightPlayArea.sumProperty );
+    const blockValuesNode = new BlockValuesNode( model.leftCountingArea.sumProperty, model.rightCountingArea.sumProperty );
     this.addChild( blockValuesNode );
 
     // create and add the CompareNumberLineNode
     const compareNumberLineNode = new CompareNumberLineNode(
       NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT - 22,
-      model.leftPlayArea.sumProperty,
-      model.rightPlayArea.sumProperty,
+      model.leftCountingArea.sumProperty,
+      model.rightCountingArea.sumProperty,
       model.sumRange
     );
     compareNumberLineNode.x = comparisonSignsNode.centerX;
@@ -196,7 +196,7 @@ class CompareScreenView extends ScreenView {
 
     // create and add a button to organize the left counting objects in a grid
     const leftOrganizeButton = new OrganizeButton( NumberCompareColors.mediumPurpleBackgroundColorProperty, () => {
-      model.leftPlayArea.organizeObjects();
+      model.leftCountingArea.organizeObjects();
     } );
     leftOrganizeButton.left = NumberSuiteCommonConstants.SCREEN_VIEW_PADDING_X;
     leftOrganizeButton.top = leftCountingAccordionBox.top;
@@ -204,14 +204,14 @@ class CompareScreenView extends ScreenView {
 
     // create and add a button to organize the objectsAccordionBox countingObjects in a grid
     const rightOrganizeButton = new OrganizeButton( NumberSuiteCommonColors.lightOrangeBackgroundColorProperty, () => {
-      model.rightPlayArea.organizeObjects();
+      model.rightCountingArea.organizeObjects();
     } );
     rightOrganizeButton.centerX = resetAllButton.centerX;
     rightOrganizeButton.top = rightCountingAccordionBox.top;
     this.addChild( rightOrganizeButton );
 
     // update the comparison signs node's text and the BlockValuesNode when either current number changes
-    Multilink.multilink( [ model.leftPlayArea.sumProperty, model.rightPlayArea.sumProperty ],
+    Multilink.multilink( [ model.leftCountingArea.sumProperty, model.rightCountingArea.sumProperty ],
       ( leftCurrentNumber, rightCurrentNumber ) => {
         comparisonSignsNode.string = leftCurrentNumber < rightCurrentNumber ? lessThanString :
                                    leftCurrentNumber > rightCurrentNumber ? greaterThanString : equalString;

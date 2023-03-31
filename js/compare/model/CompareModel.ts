@@ -10,7 +10,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import CompareCountingType from './CompareCountingType.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import CountingPlayArea from '../../../../number-suite-common/js/common/model/CountingPlayArea.js';
+import CountingArea from '../../../../number-suite-common/js/common/model/CountingArea.js';
 import Range from '../../../../dot/js/Range.js';
 import numberCompare from '../../numberCompare.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
@@ -38,8 +38,8 @@ class CompareModel implements TModel {
   public readonly sumRange: Range;
   public readonly countingTypeProperty: EnumerationProperty<CompareCountingType>;
   public readonly comparisonSignsAndTextVisibleProperty: Property<boolean>;
-  public readonly leftPlayArea: CountingPlayArea;
-  public readonly rightPlayArea: CountingPlayArea;
+  public readonly leftCountingArea: CountingArea;
+  public readonly rightCountingArea: CountingArea;
   public readonly leftCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
   public readonly rightCountingObjectTypeProperty: EnumerationProperty<CountingObjectType>;
   public readonly comparisonStringProperty: TReadOnlyProperty<string>;
@@ -54,13 +54,13 @@ class CompareModel implements TModel {
     this.countingTypeProperty = new EnumerationProperty( CompareCountingType.BLOCKS );
     this.comparisonSignsAndTextVisibleProperty = new BooleanProperty( true );
 
-    // create the left and right play areas
-    this.leftPlayArea = new CountingPlayArea( highestCount, new BooleanProperty( true ), 'leftPlayArea' );
-    this.rightPlayArea = new CountingPlayArea( highestCount, new BooleanProperty( true ), 'rightPlayArea' );
+    // create the left and right countingAreas
+    this.leftCountingArea = new CountingArea( highestCount, new BooleanProperty( true ), 'leftCountingArea' );
+    this.rightCountingArea = new CountingArea( highestCount, new BooleanProperty( true ), 'rightCountingArea' );
 
     this.comparisonStringProperty = new DerivedProperty( [
-      this.leftPlayArea.sumProperty,
-      this.rightPlayArea.sumProperty,
+      this.leftCountingArea.sumProperty,
+      this.rightCountingArea.sumProperty,
       numberComparePreferences.isPrimaryLocaleProperty,
       localeProperty,
       numberComparePreferences.secondLocaleStringsProperty
@@ -80,8 +80,8 @@ class CompareModel implements TModel {
    */
   public reset(): void {
     numberComparePreferences.isPrimaryLocaleProperty.reset();
-    this.leftPlayArea.reset();
-    this.rightPlayArea.reset();
+    this.leftCountingArea.reset();
+    this.rightCountingArea.reset();
     this.rightCountingObjectTypeProperty.reset();
     this.leftCountingObjectTypeProperty.reset();
     this.comparisonSignsAndTextVisibleProperty.reset();
