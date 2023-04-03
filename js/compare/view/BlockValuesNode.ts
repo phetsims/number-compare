@@ -25,7 +25,6 @@ class BlockValuesNode extends Node {
     // Overwrites current children, no need for disposal
     Multilink.multilink( [ leftCurrentNumberProperty, rightCurrentNumberProperty ],
       ( leftCurrentNumber, rightCurrentNumber ) => {
-        console.log( leftCurrentNumber, rightCurrentNumber );
         this.children = [ BlockValuesNode.getBlockValuesNode( leftCurrentNumber, rightCurrentNumber ) ];
       } );
   }
