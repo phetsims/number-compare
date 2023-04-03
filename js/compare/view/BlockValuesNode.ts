@@ -12,10 +12,13 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import numberCompare from '../../numberCompare.js';
 import NumberCompareColors from '../../common/NumberCompareColors.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 
-// constants
-const SIDE_LENGTH = 20.8; // the side length of one block
+// When originally developed, the height was 468 and the desired SIDE_LENGTH was 20.8 (for a max of 20 blocks), use
+// this factor for maintainability.
+const SIDE_LENGTH_FACTOR = 0.0487;
 const PADDING = 2; // padding between blocks
+const SIDE_LENGTH = NumberSuiteCommonConstants.TALL_LOWER_ACCORDION_BOX_HEIGHT * SIDE_LENGTH_FACTOR - PADDING;
 
 class BlockValuesNode extends Node {
 
