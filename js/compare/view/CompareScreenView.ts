@@ -169,6 +169,8 @@ class CompareScreenView extends ScreenView {
     // create and add the BlockValuesNode
     const blockValuesNode = new BlockValuesNode( model.leftCountingArea.sumProperty, model.rightCountingArea.sumProperty );
     this.addChild( blockValuesNode );
+    blockValuesNode.centerX = comparisonSignsNode.centerX;
+    blockValuesNode.bottom = leftCountingAccordionBox.bottom - 4; // empirically determined tweak
 
     // create and add the CompareNumberLineNode
     const compareNumberLineNode = new CompareNumberLineNode(
@@ -214,12 +216,7 @@ class CompareScreenView extends ScreenView {
     Multilink.multilink( [ model.leftCountingArea.sumProperty, model.rightCountingArea.sumProperty ],
       ( leftCurrentNumber, rightCurrentNumber ) => {
         comparisonSignsNode.string = leftCurrentNumber < rightCurrentNumber ? lessThanString :
-                                   leftCurrentNumber > rightCurrentNumber ? greaterThanString : equalString;
-
-        blockValuesNode.removeAllChildren();
-        blockValuesNode.addChild( BlockValuesNode.getBlockValuesNode( leftCurrentNumber, rightCurrentNumber ) );
-        blockValuesNode.centerX = comparisonSignsNode.centerX;
-        blockValuesNode.bottom = leftCountingAccordionBox.bottom - 4; // empirically determined tweak
+                                     leftCurrentNumber > rightCurrentNumber ? greaterThanString : equalString;
       } );
 
     // update the visibility of the comparison signs node

@@ -11,6 +11,7 @@ import { Node, Rectangle, VBox } from '../../../../scenery/js/imports.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import numberCompare from '../../numberCompare.js';
 import NumberCompareColors from '../../common/NumberCompareColors.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 // constants
 const SIDE_LENGTH = 20.8; // the side length of one block
@@ -21,8 +22,12 @@ class BlockValuesNode extends Node {
   public constructor( leftCurrentNumberProperty: TReadOnlyProperty<number>, rightCurrentNumberProperty: TReadOnlyProperty<number> ) {
     super();
 
-    //TODO https://github.com/phetsims/number-suite-common/issues/29 Fix drawing so initial state can be setup and updated here
-    // update() call here, and from usages of the static
+    // Overwrites current children, no need for disposal
+    Multilink.multilink( [ leftCurrentNumberProperty, rightCurrentNumberProperty ],
+      ( leftCurrentNumber, rightCurrentNumber ) => {
+        console.log( leftCurrentNumber, rightCurrentNumber );
+        this.children = [ BlockValuesNode.getBlockValuesNode( leftCurrentNumber, rightCurrentNumber ) ];
+      } );
   }
 
   /**
