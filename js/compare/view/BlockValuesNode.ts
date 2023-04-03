@@ -22,6 +22,7 @@ class BlockValuesNode extends Node {
     super();
 
     //TODO https://github.com/phetsims/number-suite-common/issues/29 Fix drawing so initial state can be setup and updated here
+    // update() call here, and from usages of the static
   }
 
   /**
