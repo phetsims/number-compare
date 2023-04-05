@@ -55,8 +55,8 @@ class CompareModel implements TModel {
     this.comparisonSignsAndTextVisibleProperty = new BooleanProperty( true );
 
     // create the left and right countingAreas
-    this.leftCountingArea = new CountingArea( highestCount, new BooleanProperty( true ), 'leftCountingArea' );
-    this.rightCountingArea = new CountingArea( highestCount, new BooleanProperty( true ), 'rightCountingArea' );
+    this.leftCountingArea = new CountingArea( highestCount, new BooleanProperty( true ) );
+    this.rightCountingArea = new CountingArea( highestCount, new BooleanProperty( true ) );
 
     this.comparisonStringProperty = new DerivedProperty( [
       this.leftCountingArea.sumProperty,
