@@ -30,7 +30,6 @@ const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' 
 
 const simOptions: SimOptions = {
   credits: {
-    //TODO https://github.com/phetsims/number-compare/issues/13 finalize credits
     leadDesign: 'Amanda McGarry',
     softwareDevelopment: 'Chris Klusendorf, Luisa Vargas',
     team: 'Sylvia Celedón-Pattichis, Ariel Paul, Kathy Perkins, Ian Whitacre',
