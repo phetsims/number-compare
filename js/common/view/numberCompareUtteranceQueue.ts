@@ -46,7 +46,9 @@ class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
     const speechDataProperty = new DerivedProperty(
       [ this.compareScreenSpeechDataProperty, selectedScreenProperty ], ( compareScreenSpeechData, selectedScreen ) => {
 
-        // We want the speech data to reflect the selected screen. Returns null for screens that do not support speech synthesis.
+        // We want the speech data to reflect the selected screen. Returns null for screens that do not support speech
+        // synthesis. NOTE: If more screens that support speech synthesis besides the 'Compare' screen are ever added,
+        // more work is needed to speak correctly when changing screens. See https://github.com/phetsims/number-play/issues/217.
         return selectedScreen instanceof CompareScreen ? compareScreenSpeechData : null;
       } );
 
