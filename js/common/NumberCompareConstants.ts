@@ -7,6 +7,7 @@
  */
 
 import numberCompare from '../numberCompare.js';
+import CountingCommonConstants from '../../../counting-common/js/common/CountingCommonConstants.js';
 
 const NumberCompareConstants = {
 
@@ -14,7 +15,7 @@ const NumberCompareConstants = {
   NUMBER_COMPARE_REQUIREJS_NAMESPACE: 'NUMBER_COMPARE',
 
   // default value for the maximum sum on the 'Compare' screen, see NumberCompareQueryParameters
-  COMPARE_MAX_DEFAULT: 20
+  COMPARE_MAX_DEFAULT: CountingCommonConstants.MAX_IMAGES_PER_COUNTING_OBJECT
 };
 
 numberCompare.register( 'NumberCompareConstants', NumberCompareConstants );
