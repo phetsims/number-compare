@@ -35,6 +35,7 @@ import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/N
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import Property from '../../../../axon/js/Property.js';
 import LocaleRadioButtonGroup from './LocaleRadioButtonGroup.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates
@@ -240,6 +241,7 @@ class CompareScreenView extends ScreenView {
     this.rightTotalAccordionBoxExpandedProperty.reset();
     this.leftCountingAccordionBoxExpandedProperty.reset();
     this.rightCountingAccordionBoxExpandedProperty.reset();
+    numberComparePreferences.readAloudProperty.value && numberCompareUtteranceQueue.speakSpeechData();
   }
 
   public override dispose(): void {
