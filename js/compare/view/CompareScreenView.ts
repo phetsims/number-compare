@@ -241,7 +241,7 @@ class CompareScreenView extends ScreenView {
     this.rightTotalAccordionBoxExpandedProperty.reset();
     this.leftCountingAccordionBoxExpandedProperty.reset();
     this.rightCountingAccordionBoxExpandedProperty.reset();
-    numberComparePreferences.readAloudProperty.value && numberCompareUtteranceQueue.speakSpeechData();
+    numberComparePreferences.autoHearEnabledProperty.value && numberCompareUtteranceQueue.speakSpeechData();
   }
 
   public override dispose(): void {

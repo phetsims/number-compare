@@ -30,7 +30,7 @@ class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
       numberComparePreferences.isPrimaryLocaleProperty,
       numberComparePreferences.primaryVoiceProperty,
       numberComparePreferences.secondVoiceProperty,
-      numberComparePreferences.readAloudProperty
+      numberComparePreferences.autoHearEnabledProperty
     );
 
     this.compareScreenSpeechDataProperty = new Property<string | null>( null );
