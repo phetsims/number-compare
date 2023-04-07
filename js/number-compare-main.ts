@@ -18,7 +18,7 @@ import NumberCompareStrings from './NumberCompareStrings.js';
 import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
 import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
 import numberComparePreferences from './common/model/numberComparePreferences.js';
-import ReadAloudControl from '../../number-suite-common/js/common/view/ReadAloudControl.js';
+import AutoHearControl from '../../number-suite-common/js/common/view/AutoHearControl.js';
 import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
 import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
@@ -45,7 +45,7 @@ const simOptions: SimOptions = {
     },
     audioOptions: {
       customPreferences: [ {
-        createContent: () => new ReadAloudControl(
+        createContent: () => new AutoHearControl(
           numberComparePreferences,
           numberCompareSpeechSynthesisAnnouncer,
           NumberCompareStrings.automaticallyHearNumberSentenceStringProperty,
