@@ -48,8 +48,8 @@ const simOptions: SimOptions = {
         createContent: () => new ReadAloudControl(
           numberComparePreferences,
           numberCompareSpeechSynthesisAnnouncer,
-          NumberCompareStrings.hearNumberSentenceStringProperty,
-          NumberCompareStrings.hearNumberSentenceDescriptionStringProperty,
+          NumberCompareStrings.automaticallyHearNumberSentenceStringProperty,
+          NumberCompareStrings.automaticallyHearNumberSentenceDescriptionStringProperty,
           NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
       } ],
 
