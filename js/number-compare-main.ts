@@ -25,8 +25,10 @@ import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/commo
 import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
 import LanguageAndVoiceControl from '../../number-suite-common/js/common/view/LanguageAndVoiceControl.js';
 import localeProperty from '../../joist/js/i18n/localeProperty.js';
+import MathSymbols from '../../scenery-phet/js/MathSymbols.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
+const LAB_SCREEN_SYMBOLS = [ MathSymbols.LESS_THAN, MathSymbols.GREATER_THAN, MathSymbols.EQUAL_TO, MathSymbols.PLUS, MathSymbols.MINUS ];
 
 const simOptions: SimOptions = {
   credits: {
@@ -75,7 +77,7 @@ simLauncher.launch( () => {
 
   const sim = new Sim( numberCompareTitleStringProperty, [
     new CompareScreen( Tandem.ROOT.createTandem( 'compareScreen' ) ),
-    new LabScreen( [ '<', '>', '=', '+', '-' ], numberComparePreferences, Tandem.ROOT.createTandem( 'numberCompareLabScreen' ) )
+    new LabScreen( LAB_SCREEN_SYMBOLS, numberComparePreferences, Tandem.ROOT.createTandem( 'numberCompareLabScreen' ) )
   ], simOptions );
   sim.start();
 
