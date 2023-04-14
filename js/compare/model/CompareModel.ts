@@ -18,7 +18,7 @@ import TModel from '../../../../joist/js/TModel.js';
 import Property from '../../../../axon/js/Property.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
-import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
+import NumberSuiteCommonConstants, { NUMBER_STRING_PROPERTIES } from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import NumberCompareConstants from '../../common/NumberCompareConstants.js';
 import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
@@ -58,14 +58,29 @@ class CompareModel implements TModel {
     this.leftCountingArea = new CountingArea( highestCount, new BooleanProperty( true ) );
     this.rightCountingArea = new CountingArea( highestCount, new BooleanProperty( true ) );
 
-    this.comparisonStringProperty = new DerivedProperty( [
+    const comparisonStringProperty = new DerivedProperty( [
       this.leftCountingArea.sumProperty,
       this.rightCountingArea.sumProperty,
       numberComparePreferences.isPrimaryLocaleProperty,
       localeProperty,
-      numberComparePreferences.secondLocaleStringsProperty
-    ], ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) =>
-      CompareModel.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings ) );
+      numberComparePreferences.secondLocaleStringsProperty,
+
+      // Strings that could change the comparisonStringProperty value
+      NumberCompareStrings.isLessThanStringProperty,
+      NumberCompareStrings.isGreaterThanStringProperty,
+      NumberCompareStrings.isEqualToStringProperty
+    ], ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) => {
+      return CompareModel.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings );
+    } );
+
+    // Strings that could change the comparisonStringProperty value
+    // Instead of needing to use DerivedProperty.deriveAny which doesn't allow callback parameters above, just recompute with
+    // these Property changes.
+    Multilink.multilinkAny( NUMBER_STRING_PROPERTIES, () => {
+      comparisonStringProperty.recomputeDerivation();
+    } );
+
+    this.comparisonStringProperty = comparisonStringProperty;
 
     // Update the speechDataProperty when the comparisonString or comparisonSignsAndTextVisible changes. If the
     // comparison sign and text is not visible, set the speech to null.
