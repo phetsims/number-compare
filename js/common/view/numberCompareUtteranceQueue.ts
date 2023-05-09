@@ -17,7 +17,6 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import { AnyScreen } from '../../../../joist/js/Screen.js';
 
 class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
 
@@ -41,7 +40,7 @@ class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
    * to use for a given screen that the user is viewing. This is needed because selectedScreenProperty doesn't exist
    * yet during the creation of this singleton.
    */
-  public initialize( selectedScreenProperty: TReadOnlyProperty<AnyScreen> ): void {
+  public initialize( selectedScreenProperty: TReadOnlyProperty<unknown> ): void {
 
     const speechDataProperty = new DerivedProperty(
       [ this.compareScreenSpeechDataProperty, selectedScreenProperty ], ( compareScreenSpeechData, selectedScreen ) => {
