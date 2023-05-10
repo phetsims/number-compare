@@ -25,7 +25,11 @@
     "supportedBrands": [
       "phet"
     ],
-    "supportsOutputJS": true
+    "supportsOutputJS": true,
+    "screenNameKeys": [
+      "NUMBER_COMPARE/screen.compare",
+      "NUMBER_SUITE_COMMON/screen.lab"
+    ]
   },
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js"
