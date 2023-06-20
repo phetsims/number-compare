@@ -5,21 +5,21 @@
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
-import LinkableProperty from '../../axon/js/LinkableProperty.js';
+import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProperty.js';
 import numberCompare from './numberCompare.js';
 
 type StringsType = {
   'number-compare': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
   'screen': {
-    'compareStringProperty': LinkableProperty<string>;
+    'compareStringProperty': LocalizedStringProperty;
   };
-  'isLessThanStringProperty': LinkableProperty<string>;
-  'isGreaterThanStringProperty': LinkableProperty<string>;
-  'isEqualToStringProperty': LinkableProperty<string>;
-  'automaticallyHearNumberSentenceStringProperty': LinkableProperty<string>;
-  'automaticallyHearNumberSentenceDescriptionStringProperty': LinkableProperty<string>;
+  'isLessThanStringProperty': LocalizedStringProperty;
+  'isGreaterThanStringProperty': LocalizedStringProperty;
+  'isEqualToStringProperty': LocalizedStringProperty;
+  'automaticallyHearNumberSentenceStringProperty': LocalizedStringProperty;
+  'automaticallyHearNumberSentenceDescriptionStringProperty': LocalizedStringProperty;
 };
 
 const NumberCompareStrings = getStringModule( 'NUMBER_COMPARE' ) as StringsType;
