@@ -72,6 +72,8 @@ class CompareModel implements TModel {
       NumberCompareStrings.isEqualToStringProperty
     ], ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) => {
       return CompareModel.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings );
+    }, {
+      accessNonDependencies: true
     } );
 
     // Strings that could change the comparisonStringProperty value
