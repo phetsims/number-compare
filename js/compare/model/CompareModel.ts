@@ -73,7 +73,7 @@ class CompareModel implements TModel {
     ], ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) => {
       return CompareModel.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings );
     }, {
-      strictAxonDependencies: false
+      strictAxonDependencies: false //TODO https://github.com/phetsims/number-compare/issues/42
     } );
 
     // Strings that could change the comparisonStringProperty value
