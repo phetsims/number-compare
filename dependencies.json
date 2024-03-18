@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "ab7069196e9190532053e5d5639feb01cf95cdce",
+    "sha": "12873eb37279eac8cb89cf401a2e7d2ef71d879e",
     "branch": "HEAD"
   },
   "counting-common": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "1d5f5b324938d0c03c39368e108fef9d33423af5",
+    "sha": "8f8c64121de657859e941f9d791d8c4fa7453a13",
     "branch": "HEAD"
   },
   "kite": {
@@ -33,7 +33,7 @@
     "branch": "HEAD"
   },
   "number-compare": {
-    "sha": "fd9fbcb8d8d075d2af9204d8409f329929e5cfa9",
+    "sha": "cd7af7dfa76398a3df6ff550fb0088769e653282",
     "branch": "1.0"
   },
   "number-suite-common": {
