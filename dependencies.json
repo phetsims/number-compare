@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "5e31d653a33782ba75a4dddc3e8cc997b31de807",
+    "sha": "e6c341cb661cf656d88facb91a6db6239c2dbd5d",
     "branch": "HEAD"
   },
   "counting-common": {
@@ -33,7 +33,7 @@
     "branch": "HEAD"
   },
   "number-compare": {
-    "sha": "f8cfa0fa22465a40f834506a6613fc8e48b7ec45",
+    "sha": "bdd697d856f39f99c61034a56b00c4c8eed55b1d",
     "branch": "1.0"
   },
   "number-suite-common": {
