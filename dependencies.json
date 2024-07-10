@@ -33,7 +33,7 @@
     "branch": "HEAD"
   },
   "number-compare": {
-    "sha": "2a801546adb5d1b1593df89a037f7df04060c281",
+    "sha": "7e89b46ee2d2a3fc4d0f00307fd5bcb5872ffe89",
     "branch": "1.0"
   },
   "number-suite-common": {
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "d187924f3d18b10c1c97817d6638c38357086b5d",
+    "sha": "de6765a0394447da7a82e98f69462eaf6679867d",
     "branch": "HEAD"
   },
   "scenery-phet": {
