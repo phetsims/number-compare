@@ -6,27 +6,27 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import Sim, { SimOptions } from '../../joist/js/Sim.js';
-import simLauncher from '../../joist/js/simLauncher.js';
-import Tandem from '../../tandem/js/Tandem.js';
-import CompareScreen from './compare/CompareScreen.js';
-import { Display } from '../../scenery/js/imports.js';
 import DerivedProperty from '../../axon/js/DerivedProperty.js';
 import audioManager from '../../joist/js/audioManager.js';
-import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
-import NumberCompareStrings from './NumberCompareStrings.js';
-import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
-import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
-import numberComparePreferences from './common/model/numberComparePreferences.js';
-import AutoHearControl from '../../number-suite-common/js/common/view/AutoHearControl.js';
-import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
-import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
-import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
-import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
-import LanguageAndVoiceControl from '../../number-suite-common/js/common/view/LanguageAndVoiceControl.js';
 import localeProperty from '../../joist/js/i18n/localeProperty.js';
+import PreferencesModel from '../../joist/js/preferences/PreferencesModel.js';
+import Sim, { SimOptions } from '../../joist/js/Sim.js';
+import simLauncher from '../../joist/js/simLauncher.js';
+import AutoHearControl from '../../number-suite-common/js/common/view/AutoHearControl.js';
+import LanguageAndVoiceControl from '../../number-suite-common/js/common/view/LanguageAndVoiceControl.js';
+import NumberSuiteCommonPreferencesNode from '../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
+import LabScreen from '../../number-suite-common/js/lab/LabScreen.js';
 import MathSymbols from '../../scenery-phet/js/MathSymbols.js';
+import { Display } from '../../scenery/js/imports.js';
 import isSettingPhetioStateProperty from '../../tandem/js/isSettingPhetioStateProperty.js';
+import Tandem from '../../tandem/js/Tandem.js';
+import SpeechSynthesisAnnouncer from '../../utterance-queue/js/SpeechSynthesisAnnouncer.js';
+import numberComparePreferences from './common/model/numberComparePreferences.js';
+import NumberComparePreferencesNode from './common/view/NumberComparePreferencesNode.js';
+import numberCompareSpeechSynthesisAnnouncer from './common/view/numberCompareSpeechSynthesisAnnouncer.js';
+import numberCompareUtteranceQueue from './common/view/numberCompareUtteranceQueue.js';
+import CompareScreen from './compare/CompareScreen.js';
+import NumberCompareStrings from './NumberCompareStrings.js';
 
 const numberCompareTitleStringProperty = NumberCompareStrings[ 'number-compare' ].titleStringProperty;
 const LAB_SCREEN_SYMBOLS = [ MathSymbols.LESS_THAN, MathSymbols.GREATER_THAN, MathSymbols.EQUAL_TO, MathSymbols.PLUS, MathSymbols.MINUS ];
