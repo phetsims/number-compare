@@ -6,28 +6,28 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Disposable from '../../../../axon/js/Disposable.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
-import CompareCountingType from './CompareCountingType.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
-import CountingArea from '../../../../number-suite-common/js/common/model/CountingArea.js';
-import Range from '../../../../dot/js/Range.js';
-import numberCompare from '../../numberCompare.js';
-import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
-import TModel from '../../../../joist/js/TModel.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
-import numberComparePreferences from '../../common/model/numberComparePreferences.js';
-import NumberCompareStrings from '../../NumberCompareStrings.js';
+import TProperty from '../../../../axon/js/TProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
+import Range from '../../../../dot/js/Range.js';
+import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
+import TModel from '../../../../joist/js/TModel.js';
+import CountingArea from '../../../../number-suite-common/js/common/model/CountingArea.js';
+import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
 import NumberSuiteCommonConstants, { NUMBER_STRING_PROPERTIES } from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 import NumberCompareConstants from '../../common/NumberCompareConstants.js';
-import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
-import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import TProperty from '../../../../axon/js/TProperty.js';
-import Multilink from '../../../../axon/js/Multilink.js';
+import numberCompare from '../../numberCompare.js';
+import NumberCompareStrings from '../../NumberCompareStrings.js';
+import CompareCountingType from './CompareCountingType.js';
 
 // constants
 const IS_LESS_THAN_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan`;

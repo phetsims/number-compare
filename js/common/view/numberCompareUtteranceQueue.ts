@@ -8,15 +8,15 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import TProperty from '../../../../axon/js/TProperty.js';
-import NumberSuiteCommonUtteranceQueue from '../../../../number-suite-common/js/common/view/NumberSuiteCommonUtteranceQueue.js';
-import numberCompare from '../../numberCompare.js';
-import numberCompareSpeechSynthesisAnnouncer from './numberCompareSpeechSynthesisAnnouncer.js';
-import CompareScreen from '../../compare/CompareScreen.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import numberComparePreferences from '../model/numberComparePreferences.js';
 import Property from '../../../../axon/js/Property.js';
+import TProperty from '../../../../axon/js/TProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import NumberSuiteCommonUtteranceQueue from '../../../../number-suite-common/js/common/view/NumberSuiteCommonUtteranceQueue.js';
+import CompareScreen from '../../compare/CompareScreen.js';
+import numberCompare from '../../numberCompare.js';
+import numberComparePreferences from '../model/numberComparePreferences.js';
+import numberCompareSpeechSynthesisAnnouncer from './numberCompareSpeechSynthesisAnnouncer.js';
 
 class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
 

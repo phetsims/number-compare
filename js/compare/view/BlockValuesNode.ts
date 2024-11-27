@@ -8,12 +8,12 @@
  */
 
 import Disposable from '../../../../axon/js/Disposable.js';
-import { Node, Rectangle, VBox } from '../../../../scenery/js/imports.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import numberCompare from '../../numberCompare.js';
-import NumberCompareColors from '../../common/NumberCompareColors.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
+import { Node, Rectangle, VBox } from '../../../../scenery/js/imports.js';
+import NumberCompareColors from '../../common/NumberCompareColors.js';
+import numberCompare from '../../numberCompare.js';
 
 // When originally developed, the height was 468 and the desired SIDE_LENGTH was 20.8 (for a max of 20 blocks), use
 // this factor for maintainability.

@@ -6,37 +6,37 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Disposable from '../../../../axon/js/Disposable.js';
+import Multilink from '../../../../axon/js/Multilink.js';
+import Property from '../../../../axon/js/Property.js';
+import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import Range from '../../../../dot/js/Range.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/NumberSuiteCommonColors.js';
+import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
+import CountingAccordionBox, { CountingAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/CountingAccordionBox.js';
+import OrganizeButton from '../../../../number-suite-common/js/common/view/OrganizeButton.js';
+import SpeechSynthesisControl from '../../../../number-suite-common/js/common/view/SpeechSynthesisControl.js';
+import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/TotalAccordionBox.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import SpeechSynthesisControl from '../../../../number-suite-common/js/common/view/SpeechSynthesisControl.js';
-import TotalAccordionBox, { TotalAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/TotalAccordionBox.js';
+import numberComparePreferences from '../../common/model/numberComparePreferences.js';
+import NumberCompareColors from '../../common/NumberCompareColors.js';
+import numberCompareSpeechSynthesisAnnouncer from '../../common/view/numberCompareSpeechSynthesisAnnouncer.js';
+import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
+import numberCompare from '../../numberCompare.js';
 import CompareCountingType from '../model/CompareCountingType.js';
 import CompareModel from '../model/CompareModel.js';
 import BlockValuesNode from './BlockValuesNode.js';
 import CompareCountingTypeRadioButtonGroup from './CompareCountingTypeRadioButtonGroup.js';
 import CompareNumberLineNode from './CompareNumberLineNode.js';
 import ComparisonTextNode from './ComparisonTextNode.js';
-import CountingAccordionBox, { CountingAccordionBoxOptions } from '../../../../number-suite-common/js/common/view/CountingAccordionBox.js';
-import OrganizeButton from '../../../../number-suite-common/js/common/view/OrganizeButton.js';
-import Multilink from '../../../../axon/js/Multilink.js';
-import { combineOptions } from '../../../../phet-core/js/optionize.js';
-import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
-import numberCompare from '../../numberCompare.js';
-import numberCompareSpeechSynthesisAnnouncer from '../../common/view/numberCompareSpeechSynthesisAnnouncer.js';
-import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
-import NumberCompareColors from '../../common/NumberCompareColors.js';
-import NumberSuiteCommonColors from '../../../../number-suite-common/js/common/NumberSuiteCommonColors.js';
-import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
-import Property from '../../../../axon/js/Property.js';
 import LocaleRadioButtonGroup from './LocaleRadioButtonGroup.js';
-import numberComparePreferences from '../../common/model/numberComparePreferences.js';
 
 // constants
 const UPPER_ACCORDION_BOX_CONTENT_HEIGHT = 80; // in screen coordinates

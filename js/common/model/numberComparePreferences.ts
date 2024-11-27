@@ -7,8 +7,8 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import numberCompare from '../../numberCompare.js';
 import NumberSuiteCommonPreferences from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
+import numberCompare from '../../numberCompare.js';
 
 // Currently includes no additional preferences, but provided for type checking.
 export class NumberComparePreferences extends NumberSuiteCommonPreferences {}

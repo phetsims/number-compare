@@ -8,15 +8,15 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
-import { Text, TextOptions } from '../../../../scenery/js/imports.js';
 import numberSuiteCommon from '../../../../number-suite-common/js/numberSuiteCommon.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import { Text, TextOptions } from '../../../../scenery/js/imports.js';
 import { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
 
 const TEXT_OPTIONS: TextOptions = {

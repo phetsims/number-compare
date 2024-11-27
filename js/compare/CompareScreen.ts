@@ -11,13 +11,13 @@ import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import { Image } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import compareScreenIcon_png from '../../images/compareScreenIcon_png.js';
-import CompareModel from './model/CompareModel.js';
-import CompareScreenView from './view/CompareScreenView.js';
-import NumberCompareStrings from '../NumberCompareStrings.js';
-import numberCompare from '../numberCompare.js';
 import NumberCompareColors from '../common/NumberCompareColors.js';
 import NumberCompareQueryParameters from '../common/NumberCompareQueryParameters.js';
 import numberCompareUtteranceQueue from '../common/view/numberCompareUtteranceQueue.js';
+import numberCompare from '../numberCompare.js';
+import NumberCompareStrings from '../NumberCompareStrings.js';
+import CompareModel from './model/CompareModel.js';
+import CompareScreenView from './view/CompareScreenView.js';
 
 class CompareScreen extends Screen<CompareModel, CompareScreenView> {
 

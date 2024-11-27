@@ -6,8 +6,8 @@
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
 
-import numberCompare from '../numberCompare.js';
 import CountingCommonConstants from '../../../counting-common/js/common/CountingCommonConstants.js';
+import numberCompare from '../numberCompare.js';
 
 const NumberCompareConstants = {
 
