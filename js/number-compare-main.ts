@@ -50,7 +50,7 @@ const simOptions: SimOptions = {
       customPreferences: [ {
         createContent: () => new AutoHearControl(
           numberComparePreferences.autoHearEnabledProperty,
-          numberCompareSpeechSynthesisAnnouncer,
+          numberCompareSpeechSynthesisAnnouncer.hasVoiceProperty,
           NumberCompareStrings.automaticallyHearNumberSentenceStringProperty,
           NumberCompareStrings.automaticallyHearNumberSentenceDescriptionStringProperty,
           NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
