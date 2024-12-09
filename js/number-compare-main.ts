@@ -49,7 +49,7 @@ const simOptions: SimOptions = {
     audioOptions: {
       customPreferences: [ {
         createContent: () => new AutoHearControl(
-          numberComparePreferences,
+          numberComparePreferences.autoHearEnabledProperty,
           numberCompareSpeechSynthesisAnnouncer,
           NumberCompareStrings.automaticallyHearNumberSentenceStringProperty,
           NumberCompareStrings.automaticallyHearNumberSentenceDescriptionStringProperty,
