@@ -53,7 +53,9 @@ const simOptions: SimOptions = {
           numberCompareSpeechSynthesisAnnouncer.hasVoiceProperty,
           NumberCompareStrings.automaticallyHearNumberSentenceStringProperty,
           NumberCompareStrings.automaticallyHearNumberSentenceDescriptionStringProperty,
-          NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen ) )
+          {
+            visible: NumberSuiteCommonPreferencesNode.hasScreenType( CompareScreen )
+          } )
       } ],
 
       // speech synthesis is the only sound used in this sim, no general sim sounds
