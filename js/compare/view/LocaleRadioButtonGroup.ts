@@ -53,7 +53,7 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
       radioButtonOptions: {
         radius: RADIO_BUTTON_RADIUS
       },
-      visibleProperty: new DerivedProperty( [ numberComparePreferences.showSecondLocaleProperty ], showSecondLocale => showSecondLocale )
+      visibleProperty: new DerivedProperty( [ numberComparePreferences.secondLocaleEnabledProperty ], showSecondLocale => showSecondLocale )
     } );
 
     // Speak speechData if autoHear is turned on.
