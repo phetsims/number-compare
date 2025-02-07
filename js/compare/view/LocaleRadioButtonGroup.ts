@@ -13,7 +13,7 @@ import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
 import numberSuiteCommon from '../../../../number-suite-common/js/numberSuiteCommon.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Text, TextOptions } from '../../../../scenery/js/imports.js';
+import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
