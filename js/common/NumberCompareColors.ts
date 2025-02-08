@@ -1,4 +1,4 @@
-// Copyright 2022, University of Colorado Boulder
+// Copyright 2022-2025, University of Colorado Boulder
 
 /**
  * NumberCompareColors defines the colors for this simulation. Additional colors used in this sim can be found in

@@ -1,4 +1,4 @@
-// Copyright 2023-2024, University of Colorado Boulder
+// Copyright 2023-2025, University of Colorado Boulder
 
 /**
  * LocaleRadioButtonGroup is a vertical radio-button group for selecting primary vs secondary language.
