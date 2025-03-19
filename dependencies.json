@@ -1,5 +1,5 @@
 {
-  "comment": "# number-compare 1.0.8 Fri Jul 12 2024 19:20:11 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# number-compare 1.0.9-rc.1 Wed Mar 19 2025 14:49:08 GMT-0400 (Eastern Daylight Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "HEAD"
@@ -33,7 +33,7 @@
     "branch": "HEAD"
   },
   "number-compare": {
-    "sha": "ef01a123d58bfcd5a0ca224877366010f9dbc757",
+    "sha": "d7c5afcfed5e9e56b4fa13649668790634158426",
     "branch": "1.0"
   },
   "number-suite-common": {
