@@ -1,5 +1,6 @@
 // Copyright 2023, University of Colorado Boulder
 
+import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
 import numberCompare from '../numberCompare.js';
 import NumberCompareConstants from './NumberCompareConstants.js';
 
