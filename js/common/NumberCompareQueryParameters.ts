@@ -1,4 +1,4 @@
-// Copyright 2023, University of Colorado Boulder
+// Copyright 2023-2025, University of Colorado Boulder
 
 import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
 import numberCompare from '../numberCompare.js';
