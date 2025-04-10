@@ -9,30 +9,24 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Disposable from '../../../../axon/js/Disposable.js';
+import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import LocalizedStringProperty from '../../../../chipper/js/browser/LocalizedStringProperty.js';
 import CountingObjectType from '../../../../counting-common/js/common/model/CountingObjectType.js';
 import Range from '../../../../dot/js/Range.js';
-import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
 import TModel from '../../../../joist/js/TModel.js';
 import CountingArea from '../../../../number-suite-common/js/common/model/CountingArea.js';
-import { SecondLocaleStrings } from '../../../../number-suite-common/js/common/model/NumberSuiteCommonPreferences.js';
-import NumberSuiteCommonConstants, { NUMBER_STRING_PROPERTIES } from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
-import NumberCompareConstants from '../../common/NumberCompareConstants.js';
 import numberCompare from '../../numberCompare.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
 import CompareCountingType from './CompareCountingType.js';
-
-// constants
-const IS_LESS_THAN_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isLessThan`;
-const IS_GREATER_THAN_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isGreaterThan`;
-const IS_EQUAL_TO_STRING_KEY = `${NumberCompareConstants.NUMBER_COMPARE_REQUIREJS_NAMESPACE}/isEqualTo`;
 
 class CompareModel implements TModel {
 
@@ -59,29 +53,60 @@ class CompareModel implements TModel {
     this.leftCountingArea = new CountingArea( highestCount, new BooleanProperty( true ) );
     this.rightCountingArea = new CountingArea( highestCount, new BooleanProperty( true ) );
 
-    const comparisonStringProperty = new DerivedProperty( [
+    // number => string Property, potentially using the second locale
+    const getNumberWordProperty = ( numberProperty: TReadOnlyProperty<number> ): TReadOnlyProperty<string> => {
+      return new DynamicProperty( new DerivedProperty( [
+        numberProperty,
+        numberComparePreferences.isPrimaryLocaleProperty,
+        numberComparePreferences.secondLocaleProperty
+      ], ( currentNumber, isPrimaryLocale, secondLocale ) => {
+        return NumberSuiteCommonConstants.numberToWordProperty( secondLocale, currentNumber, isPrimaryLocale );
+      } ) );
+    };
+
+    const leftNumberWordProperty = getNumberWordProperty( this.leftCountingArea.sumProperty );
+    const rightNumberWordProperty = getNumberWordProperty( this.rightCountingArea.sumProperty );
+
+    // Given a translated string Property, returns an equivalent string Property that may be switched to the second
+    // locale when isPrimaryLocaleProperty's value is false.
+    const getPrimaryOrSecondaryStringProperty = ( stringProperty: LocalizedStringProperty ): TReadOnlyProperty<string> => {
+      return new DynamicProperty( new DerivedProperty( [
+        numberComparePreferences.isPrimaryLocaleProperty,
+        numberComparePreferences.secondLocaleProperty
+      ], ( isPrimaryLocale, secondLocale ) => {
+        return isPrimaryLocale ? stringProperty : stringProperty.getTranslatedStringProperty( secondLocale );
+      } ) );
+    };
+
+    // To avoid creating/disposing things, we'll create all three conditions and then use the one we need below.
+    const isLessThanStringProperty = new PatternStringProperty( getPrimaryOrSecondaryStringProperty( NumberCompareStrings.isLessThanStringProperty ), {
+      smallerNumber: leftNumberWordProperty,
+      greaterNumber: rightNumberWordProperty
+    } );
+    const isGreaterThanStringProperty = new PatternStringProperty( getPrimaryOrSecondaryStringProperty( NumberCompareStrings.isGreaterThanStringProperty ), {
+      greaterNumber: leftNumberWordProperty,
+      smallerNumber: rightNumberWordProperty
+    } );
+    const isEqualToStringProperty = new PatternStringProperty( getPrimaryOrSecondaryStringProperty( NumberCompareStrings.isEqualToStringProperty ), {
+      equalNumberLeft: leftNumberWordProperty,
+      equalNumberRight: rightNumberWordProperty
+    } );
+
+    // Swap in the correct comparison based on the numbers
+    this.comparisonStringProperty = new DynamicProperty( new DerivedProperty( [
       this.leftCountingArea.sumProperty,
-      this.rightCountingArea.sumProperty,
-      numberComparePreferences.isPrimaryLocaleProperty,
-      localeProperty,
-      numberComparePreferences.secondLocaleStringsProperty,
-
-      // Strings that could change the comparisonStringProperty value
-      NumberCompareStrings.isLessThanStringProperty,
-      NumberCompareStrings.isGreaterThanStringProperty,
-      NumberCompareStrings.isEqualToStringProperty
-    ], ( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, primaryLocale, secondLocaleStrings ) => {
-      return CompareModel.getComparisonString( leftCurrentNumber, rightCurrentNumber, isPrimaryLocale, secondLocaleStrings );
-    } );
-
-    // Strings that could change the comparisonStringProperty value
-    // Instead of needing to use DerivedProperty.deriveAny which doesn't allow callback parameters above, just recompute with
-    // these Property changes.
-    Multilink.multilinkAny( NUMBER_STRING_PROPERTIES, () => {
-      comparisonStringProperty.recomputeDerivation();
-    } );
-
-    this.comparisonStringProperty = comparisonStringProperty;
+      this.rightCountingArea.sumProperty
+    ], ( leftCurrentNumber, rightCurrentNumber ) => {
+      if ( leftCurrentNumber < rightCurrentNumber ) {
+        return isLessThanStringProperty;
+      }
+      else if ( leftCurrentNumber > rightCurrentNumber ) {
+        return isGreaterThanStringProperty;
+      }
+      else {
+        return isEqualToStringProperty;
+      }
+    } ) );
 
     // Update the speechDataProperty when the comparisonString or comparisonSignsAndTextVisible changes. If the
     // comparison sign and text is not visible, set the speech to null.
@@ -102,49 +127,6 @@ class CompareModel implements TModel {
     this.leftCountingObjectTypeProperty.reset();
     this.comparisonSignsAndTextVisibleProperty.reset();
     this.countingTypeProperty.reset();
-  }
-
-  /**
-   * Builds the string based on the current numbers. Example format: "Three is less than seven"
-   */
-  private static getComparisonString( leftCurrentNumber: number,
-                                      rightCurrentNumber: number,
-                                      isPrimaryLocale: boolean,
-                                      secondLocaleStrings: SecondLocaleStrings ): string {
-
-    const isLessThanString = NumberSuiteCommonConstants.getString( NumberCompareStrings.isLessThanStringProperty.value,
-      secondLocaleStrings[ IS_LESS_THAN_STRING_KEY ], IS_LESS_THAN_STRING_KEY, isPrimaryLocale );
-    const isGreaterThanString = NumberSuiteCommonConstants.getString( NumberCompareStrings.isGreaterThanStringProperty.value,
-      secondLocaleStrings[ IS_GREATER_THAN_STRING_KEY ], IS_GREATER_THAN_STRING_KEY, isPrimaryLocale );
-    const isEqualToString = NumberSuiteCommonConstants.getString( NumberCompareStrings.isEqualToStringProperty.value,
-      secondLocaleStrings[ IS_EQUAL_TO_STRING_KEY ], IS_EQUAL_TO_STRING_KEY, isPrimaryLocale );
-
-    const leftNumberWord = NumberSuiteCommonConstants.numberToWord( secondLocaleStrings,
-      leftCurrentNumber, isPrimaryLocale );
-    const rightNumberWord = NumberSuiteCommonConstants.numberToWord( secondLocaleStrings,
-      rightCurrentNumber, isPrimaryLocale );
-    let comparisonString;
-
-    if ( leftCurrentNumber < rightCurrentNumber ) {
-      comparisonString = StringUtils.fillIn( isLessThanString, {
-        smallerNumber: leftNumberWord,
-        greaterNumber: rightNumberWord
-      } );
-    }
-    else if ( leftCurrentNumber > rightCurrentNumber ) {
-      comparisonString = StringUtils.fillIn( isGreaterThanString, {
-        greaterNumber: leftNumberWord,
-        smallerNumber: rightNumberWord
-      } );
-    }
-    else {
-      comparisonString = StringUtils.fillIn( isEqualToString, {
-        equalNumberLeft: leftNumberWord,
-        equalNumberRight: rightNumberWord
-      } );
-    }
-
-    return comparisonString;
   }
 
   public dispose(): void {
