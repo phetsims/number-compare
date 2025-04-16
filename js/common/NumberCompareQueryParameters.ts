@@ -1,14 +1,14 @@
 // Copyright 2023-2025, University of Colorado Boulder
 
-import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
-import numberCompare from '../numberCompare.js';
-import NumberCompareConstants from './NumberCompareConstants.js';
-
 /**
  * NumberCompareQueryParameters defines query parameters that are specific to this simulation.
  *
  * @author Chris Klusendorf (PhET Interactive Simulations)
  */
+
+import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
+import numberCompare from '../numberCompare.js';
+import NumberCompareConstants from './NumberCompareConstants.js';
 
 const NumberCompareQueryParameters = QueryStringMachine.getAll( {
 
