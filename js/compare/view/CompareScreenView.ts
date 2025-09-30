@@ -188,7 +188,6 @@ class CompareScreenView extends ScreenView {
     // create and add the ResetAllButton
     const resetAllButton = new ResetAllButton( {
       listener: () => {
-        this.interruptSubtreeInput(); // cancel interactions that may be in progress
         model.reset();
         this.reset();
       },
