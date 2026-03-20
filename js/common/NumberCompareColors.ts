@@ -26,5 +26,4 @@ const NumberCompareColors = {
   } )
 };
 
-numberCompare.register( 'NumberCompareColors', NumberCompareColors );
 export default NumberCompareColors;

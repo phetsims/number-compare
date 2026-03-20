@@ -24,7 +24,6 @@ import CountingArea from '../../../../number-suite-common/js/common/model/Counti
 import NumberSuiteCommonConstants from '../../../../number-suite-common/js/common/NumberSuiteCommonConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import numberComparePreferences from '../../common/model/numberComparePreferences.js';
-import numberCompare from '../../numberCompare.js';
 import NumberCompareStrings from '../../NumberCompareStrings.js';
 import CompareCountingType from './CompareCountingType.js';
 
@@ -134,5 +133,4 @@ class CompareModel implements TModel {
   }
 }
 
-numberCompare.register( 'CompareModel', CompareModel );
 export default CompareModel;

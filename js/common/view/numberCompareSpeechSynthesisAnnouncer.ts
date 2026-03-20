@@ -8,7 +8,6 @@
  */
 
 import NumberSuiteCommonSpeechSynthesisAnnouncer from '../../../../number-suite-common/js/common/view/NumberSuiteCommonSpeechSynthesisAnnouncer.js';
-import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 
 const numberCompareSpeechSynthesisAnnouncer = new NumberSuiteCommonSpeechSynthesisAnnouncer(
@@ -18,5 +17,4 @@ const numberCompareSpeechSynthesisAnnouncer = new NumberSuiteCommonSpeechSynthes
   numberComparePreferences.secondVoiceProperty
 );
 
-numberCompare.register( 'numberCompareSpeechSynthesisAnnouncer', numberCompareSpeechSynthesisAnnouncer );
 export default numberCompareSpeechSynthesisAnnouncer;

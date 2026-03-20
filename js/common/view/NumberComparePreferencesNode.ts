@@ -10,7 +10,6 @@
 import Disposable from '../../../../axon/js/Disposable.js';
 import NumberSuiteCommonPreferencesNode from '../../../../number-suite-common/js/common/view/NumberSuiteCommonPreferencesNode.js';
 import CompareScreen from '../../compare/CompareScreen.js';
-import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 import numberCompareUtteranceQueue from './numberCompareUtteranceQueue.js';
 
@@ -28,5 +27,3 @@ export default class NumberComparePreferencesNode extends NumberSuiteCommonPrefe
     super.dispose();
   }
 }
-
-numberCompare.register( 'NumberComparePreferencesNode', NumberComparePreferencesNode );

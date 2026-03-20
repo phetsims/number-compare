@@ -29,7 +29,6 @@ import numberComparePreferences from '../../common/model/numberComparePreference
 import NumberCompareColors from '../../common/NumberCompareColors.js';
 import numberCompareSpeechSynthesisAnnouncer from '../../common/view/numberCompareSpeechSynthesisAnnouncer.js';
 import numberCompareUtteranceQueue from '../../common/view/numberCompareUtteranceQueue.js';
-import numberCompare from '../../numberCompare.js';
 import CompareCountingType from '../model/CompareCountingType.js';
 import CompareModel from '../model/CompareModel.js';
 import BlockValuesNode from './BlockValuesNode.js';
@@ -250,5 +249,4 @@ class CompareScreenView extends ScreenView {
   }
 }
 
-numberCompare.register( 'CompareScreenView', CompareScreenView );
 export default CompareScreenView;

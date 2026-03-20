@@ -15,7 +15,6 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import NumberCompareColors from '../../common/NumberCompareColors.js';
-import numberCompare from '../../numberCompare.js';
 
 // When originally developed, the height was 468 and the desired SIDE_LENGTH was 20.8 (for a max of 20 blocks), use
 // this factor for maintainability.
@@ -88,5 +87,4 @@ class BlockValuesNode extends Node {
   }
 }
 
-numberCompare.register( 'BlockValuesNode', BlockValuesNode );
 export default BlockValuesNode;

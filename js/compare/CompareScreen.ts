@@ -14,7 +14,6 @@ import compareScreenIcon_png from '../../images/compareScreenIcon_png.js';
 import NumberCompareColors from '../common/NumberCompareColors.js';
 import NumberCompareQueryParameters from '../common/NumberCompareQueryParameters.js';
 import numberCompareUtteranceQueue from '../common/view/numberCompareUtteranceQueue.js';
-import numberCompare from '../numberCompare.js';
 import NumberCompareStrings from '../NumberCompareStrings.js';
 import CompareModel from './model/CompareModel.js';
 import CompareScreenView from './view/CompareScreenView.js';
@@ -44,5 +43,4 @@ class CompareScreen extends Screen<CompareModel, CompareScreenView> {
   }
 }
 
-numberCompare.register( 'CompareScreen', CompareScreen );
 export default CompareScreen;

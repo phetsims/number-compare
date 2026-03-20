@@ -13,7 +13,6 @@ import NumberSuiteCommonConstants from '../../../../number-suite-common/js/commo
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import numberCompare from '../../numberCompare.js';
 
 class ComparisonTextNode extends Node {
 
@@ -41,5 +40,4 @@ class ComparisonTextNode extends Node {
   }
 }
 
-numberCompare.register( 'ComparisonTextNode', ComparisonTextNode );
 export default ComparisonTextNode;

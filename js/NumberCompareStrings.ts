@@ -27,6 +27,4 @@ type StringsType = {
 
 const NumberCompareStrings = getStringModule( 'NUMBER_COMPARE' ) as StringsType;
 
-numberCompare.register( 'NumberCompareStrings', NumberCompareStrings );
-
 export default NumberCompareStrings;

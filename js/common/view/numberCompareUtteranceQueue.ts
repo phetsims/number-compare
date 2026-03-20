@@ -14,7 +14,6 @@ import TProperty from '../../../../axon/js/TProperty.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import NumberSuiteCommonUtteranceQueue from '../../../../number-suite-common/js/common/view/NumberSuiteCommonUtteranceQueue.js';
 import CompareScreen from '../../compare/CompareScreen.js';
-import numberCompare from '../../numberCompare.js';
 import numberComparePreferences from '../model/numberComparePreferences.js';
 import numberCompareSpeechSynthesisAnnouncer from './numberCompareSpeechSynthesisAnnouncer.js';
 
@@ -57,5 +56,4 @@ class NumberCompareUtteranceQueue extends NumberSuiteCommonUtteranceQueue {
 
 const numberCompareUtteranceQueue = new NumberCompareUtteranceQueue();
 
-numberCompare.register( 'numberCompareUtteranceQueue', numberCompareUtteranceQueue );
 export default numberCompareUtteranceQueue;

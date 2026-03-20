@@ -7,7 +7,6 @@
  */
 
 import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
-import numberCompare from '../numberCompare.js';
 import NumberCompareConstants from './NumberCompareConstants.js';
 
 const NumberCompareQueryParameters = QueryStringMachine.getAll( {
@@ -23,5 +22,4 @@ const NumberCompareQueryParameters = QueryStringMachine.getAll( {
   }
 } );
 
-numberCompare.register( 'NumberCompareQueryParameters', NumberCompareQueryParameters );
 export default NumberCompareQueryParameters;

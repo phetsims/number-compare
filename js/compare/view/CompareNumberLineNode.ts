@@ -23,7 +23,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import TPaint from '../../../../scenery/js/util/TPaint.js';
 import NumberCompareColors from '../../common/NumberCompareColors.js';
-import numberCompare from '../../numberCompare.js';
 
 // types
 type GetNumberLineNodeOptions = {
@@ -173,5 +172,4 @@ class LeftRightDirection extends EnumerationValue {
   public static readonly enumeration = new Enumeration( LeftRightDirection );
 }
 
-numberCompare.register( 'CompareNumberLineNode', CompareNumberLineNode );
 export default CompareNumberLineNode;

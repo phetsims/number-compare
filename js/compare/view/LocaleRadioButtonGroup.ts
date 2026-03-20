@@ -10,7 +10,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import localeProperty from '../../../../joist/js/i18n/localeProperty.js';
-import numberSuiteCommon from '../../../../number-suite-common/js/numberSuiteCommon.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
@@ -62,5 +61,3 @@ export default class LocaleRadioButtonGroup extends VerticalAquaRadioButtonGroup
     } );
   }
 }
-
-numberSuiteCommon.register( 'LocaleRadioButtonGroup', LocaleRadioButtonGroup );
